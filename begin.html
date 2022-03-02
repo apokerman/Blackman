@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>欢迎界面</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.css"> <script src="jquery.mobile-1.4.5/demos/js/jquery.js">
+		 </script>
+		<script src="jquery.mobile-1.4.5/demos/js/jquery.mobile-1.4.5.js"> </script> 
+	</head>
+	<style type="text/css">
+		#begin{
+			background-color: #bbb;
+			background-size: contain;
+			text-align: center;
+		}
+		#text{
+			margin-top: 60%;
+		}
+		#text a{
+			font-size: -webkit-xxx-large;
+			color: #3388cc /*{a-link-color}*/;	
+		}
+	</style>
+	<body>
+		<div data-role="page" id="begin">
+			<div id="text"><a>小黑盒</a></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		setTimeout( function(){
+			location.href = 'login.html';
+		}, 4 * 1000 );
+	</script>
+</html>

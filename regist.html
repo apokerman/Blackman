@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>欢迎界面</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.css"> <script src="jquery.mobile-1.4.5/demos/js/jquery.js">
+		 </script>
+		<script src="jquery.mobile-1.4.5/demos/js/jquery.mobile-1.4.5.js"> </script>
+		<script>$.mobile.ajaxEnabled = false;</script>
+	</head>
+	<style type="text/css">
+		#head2 {
+		position: absolute;
+		width: 100%;
+		height: 55%;
+		background-color: #bbb;
+		}
+		#usname,#uspwd,#uspwd2{
+			height: 5%;
+			margin-top: 2%;
+		}
+	</style>
+	<body>
+		<div data-role="page" id="regist">
+			<div id="head2"></div>
+			<div data-role="header" >
+				<h1 role="heading">欢迎登陆</h1>
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<form method="get" action="">
+		
+					<div class="ui-field-contain">
+						<label for="uname">姓名:</label>
+		
+						<input type="text" name="name" id="uname">
+						<div id="usname"> </div>
+						<br />
+						<label for="upwd">输入密码:</label>
+		
+						<input type="password" name="password" id="upwd">
+						<div id="uspwd"></div>
+						<br />
+						<label for="upwd2">确认密码:</label>
+						
+						<input type="password" name="password" id="upwd2">
+						<div id="uspwd2"></div>
+						<div style="margin-top: 25%;">
+							<a href="login.html" data-role="button" data-transition="flow">返回登录</a>
+							<a href="#" data-role="button" data-transition="flip"id="btSubmit">注册</a>
+						</div>
+					</div>
+		
+				</form>
+			</div>
+		
+			<div data-role="footer" style="text-align: center" data-position="fixed">
+				<p>CopyRight &copy;koastal</p>
+			</div>
+		</div>
+	</body>
+	<script>		
+		var storage=window.localStorage;		
+		var c = new RegExp();
+		var s = new RegExp();
+		var fg = 0;
+	
+		//用户名监视检验
+		uname.addEventListener('input', namelisten);
+	
+		function namelisten() {
+			var username = document.getElementById('uname').value;
+			c = /^[A-z][A-z0-9_]*$/;
+			s = /^[A-z0-9_]{8,15}$/;
+			if (!c.test(username)) {
+				usname.innerHTML = "用户名只支持以字母开头，请正确填写!";
+			} else if (!s.test(username)) {
+				usname.innerHTML = "用户名由8-15个英文 数字 下划线组合，请正确填写!";
+			} else if (search()) {
+				usname.innerHTML = "用户名已存在";
+			} else {
+				usname.innerHTML = "用户名符合";
+				fg = 1;
+				return true;
+			}
+		}
+	
+		//用户名已存在检查
+		function search() {
+			var i =0;
+			while(storage.getItem("data"+i)){
+				i+=1;
+				console.log(i);
+			}
+			var logining = storage.getItem("nowlogin");
+			localStorage.removeItem('nowlogin');
+			if(localStorage.length%5!=0){
+				var i=(localStorage.length+5-localStorage.length%5)/5;
+			}else{
+				var i = localStorage.length/5;
+			}	
+			for (var i; i > 0; i--) {
+				var json=storage.getItem("data"+i);
+				var jsonObj=JSON.parse(json);
+				var x=jsonObj.usename;			
+				if (x == uname.value) return true;
+			}
+			return false;
+		}
+	
+		//密码监视检验
+		upwd.addEventListener('input', wdlisten);
+	
+		function wdlisten() {
+			var upname = document.getElementById('upwd').value;
+			c = /^[0-9]*$/;
+			s = /^[0-9]{6,8}$/;
+			if (!c.test(upname)) {
+				uspwd.innerHTML = "密码只支持数字，请正确填写!";
+			} else if (!s.test(upname)) {
+				uspwd.innerHTML = "密码需6-8位数字，请正确填写!";
+			} else {
+				uspwd.innerHTML = "密码符合";
+				if (fg == 1) fg = 2;				
+				return true;
+			}
+		}
+	
+		upwd2.addEventListener('input', wd2listen);
+	
+		function wd2listen() {
+			var upname = document.getElementById('upwd').value;
+			if (upwd.value != upwd2.value) {
+				uspwd2.innerHTML = "密码与上次输入不一致，请重新输入!";
+			} else {
+				uspwd2.innerHTML = "密码符合";
+				if (fg == 2) fg = 3;
+				return true;
+			}
+		}
+		//注册
+		btSubmit.onclick = function() {
+			if(localStorage.length%5!=0){
+				var i=(localStorage.length+5-localStorage.length%5)/5;
+			}else{
+				var i = localStorage.length/5;
+			}	
+			var flag = i+1;
+			var n = uname.value;
+			var p = upwd.value;
+			if (fg == 3) {    //满足三步，即可注册				
+				localStorage.setItem('nowregist', n);
+				//保存当前注册的key尾数，可以供后续的其他页面使用
+				if(!window.localStorage){
+				    alert("浏览器不支持localstorage");
+				}else{
+					if (fg == 3) {    //满足三步，即可注册
+						alert('注册成功，1秒钟后跳转回登录界面');
+						// localStorage.setItem('nowregist', n);
+						//保存当前注册的key尾数，可以供后续的其他页面使用
+						var storage=window.localStorage;
+						var data={
+						    usename:n,
+						    password:p,						
+							contains:flag,
+						};
+						var d=JSON.stringify(data);
+						storage.setItem("data"+flag,d);						
+						setTimeout(function() {
+							location.href = 'login.html';
+						}, 1000)
+					}			   
+				}
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,3135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>主界面</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.css"> <script src="jquery.mobile-1.4.5/demos/js/jquery.js">
+		 </script>
+		<script src="jquery.mobile-1.4.5/demos/js/jquery.mobile-1.4.5.js"> </script> 
+		<script>$.mobile.ajaxEnabled =
+		false;</script>
+	</head>
+	<style type="text/css">
+		#containcss img {
+			max-width: 8em;
+			max-height: 100%;
+		}
+
+		#containcss h2 {
+
+			margin-left: 5em;
+		}
+
+		.checkb {
+			position: absolute !important;
+			left: auto !important;
+			top: 50px !important;
+			right: 20px !important;
+		}
+
+		#msg {
+			position: absolute;
+			bottom: 60px;
+		}
+
+		.page1imag {
+			max-width: 7em;
+		}
+
+		.ui-listview>li h1,
+		.ui-listview>li h2,
+		.ui-listview>li h3,
+		.ui-listview>li h4,
+		.ui-listview>li h5,
+		.ui-listview>li h6 {
+			margin-left: 1.5em;
+			margin-top: 1.5em;
+		}
+
+		.ui-content.ui-block-a,
+		.ui-content.ui-block-b {
+			height: 100px;
+			font-weight: bold;
+			text-align: center;
+			padding: 5px;
+			width: 100%;
+		}
+
+		.ui-content {
+			padding: 0.4em;
+		}
+
+		.ui-grid-solo>.ui-block-a {
+			width: 100%;
+		}
+
+		.ui-mobile a img,
+		.ui-mobile fieldset {
+			width: 100%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+			border-radius: 3px;
+		}
+
+		.ui-page-theme-a a,
+		html .ui-bar-a a,
+		html .ui-body-a a,
+		html body .ui-group-theme-a a {
+			color: #807e7e;
+			font-weight: 400;
+		}
+
+		.ui-page-theme-a .ui-btn.ui-btn-active,
+		html .ui-bar-a .ui-btn.ui-btn-active,
+		html .ui-body-a .ui-btn.ui-btn-active,
+		html body .ui-group-theme-a .ui-btn.ui-btn-active,
+		html head+body .ui-btn.ui-btn-a.ui-btn-active,
+		.ui-page-theme-a .ui-checkbox-on:after,
+		html .ui-bar-a .ui-checkbox-on:after,
+		html .ui-body-a .ui-checkbox-on:after,
+		html body .ui-group-theme-a .ui-checkbox-on:after,
+		.ui-btn.ui-checkbox-on.ui-btn-a:after,
+		.ui-page-theme-a .ui-flipswitch-active,
+		html .ui-bar-a .ui-flipswitch-active,
+		html .ui-body-a .ui-flipswitch-active,
+		html body .ui-group-theme-a .ui-flipswitch-active,
+		html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active,
+		.ui-page-theme-a .ui-slider-track .ui-btn-active,
+		html .ui-bar-a .ui-slider-track .ui-btn-active,
+		html .ui-body-a .ui-slider-track .ui-btn-active,
+		html body .ui-group-theme-a .ui-slider-track .ui-btn-active,
+		html body div.ui-slider-track.ui-body-a .ui-btn-active {
+			background-color: #848282;
+			border-color: #f6f6f6;
+		}
+
+		.ui-grid-a>.ui-block-a,
+		.ui-grid-a>.ui-block-b {
+			width: 50%;
+			padding: 5px;
+		}
+
+		.ui-content .ui-listview,
+		.ui-panel-inner>.ui-listview {
+			margin: 0em;
+		}
+
+		.ui-grid-b>.ui-block-a,
+		.ui-grid-b>.ui-block-b,
+		.ui-grid-b>.ui-block-c {
+			padding: 2px;
+			;
+		}
+
+		.ui-listview>.ui-li-static.ui-last-child,
+		.ui-listview>.ui-li-divider.ui-last-child,
+		.ui-listview>li.ui-last-child>a.ui-btn {
+			border-bottom-width: 0px;
+		}
+
+		.ui-footer ui-bar-inherit ui-footer-fixed slideup {}
+
+		.ui-listview .ui-li-has-thumb>img:first-child,
+		.ui-listview .ui-li-has-thumb>.ui-btn>img:first-child,
+		.ui-listview .ui-li-has-thumb .ui-li-thumb {
+			top: auto;
+			left: .45em;
+		}
+
+		p {
+			display: block;
+			margin-block-start: 0.4em;
+			margin-block-end: 0.4em;
+			margin-inline-start: 0px;
+			margin-inline-end: 0px;
+		}
+
+		h2 {
+			display: block;
+			font-size: 1.2em;
+			margin-block-start: 0.4em;
+			margin-block-end: 0.4em;
+			margin-inline-start: 0px;
+			margin-inline-end: 0px;
+			font-weight: bold;
+		}
+
+		ul {
+			padding-inline-start: 5px;
+		}
+
+		.ui-panel-inner {
+			padding: 0.01px;
+		}
+	</style>
+	<style>
+		.fl {
+	        float: left;
+	    }
+	
+	    .fr {
+	        float: right;
+	    }
+	
+	    .apply {
+	        display: block;
+	        height: 3.1rem;
+	        border-bottom: 1px solid #eee;
+	        position: relative;
+	        zoom: 1;
+	        overflow: hidden;
+	        padding: 0 .75rem;
+	    }
+	
+	    .apply .item div {
+	        font-size: .7rem;
+	    }
+	
+	    .apply .pic {
+	        width: 2.25rem;
+	        height: 2.25rem;
+	        margin-top: .35rem;
+	        float: left;
+	    }
+	
+	    .apply .pic img {
+	        width: 100%;
+	        height: 2.25rem;
+	    }
+	
+	    .apply .name2 {
+	        margin-left: 2.75rem;
+	        padding-top: .6rem;
+	    }
+	
+	    .apply .name2 span {
+	        display: block;
+	    }
+	
+	    .addit {
+	        height: 3.1rem;
+	        line-height: 3.1rem;
+	        position: absolute;
+	        right: 0rem;
+	        width: 0rem;
+	        top: 0;
+	        background: red;
+	        color: #fff;
+	        text-align: center;
+	    }
+	</style>
+	<script>
+		var i = 1;
+
+		function fn() {
+			var img = document.getElementById("image1");
+			img.src = "img/img1/" + i + ".jpg";
+			var img2 = document.getElementById("image2");
+			img2.src = "img/img2/" + i + ".jpg";
+			document.getElementById("mdzz").href = "#img" + i;
+			document.getElementById("mdzz2").href = "#img2" + i;
+			i++;
+			if (i == 7)
+				i = 1;
+			setTimeout("fn()", 2000) //一秒钟调用
+		}
+	</script>
+	<script>
+		var storage = window.localStorage;
+		var logining = storage.getItem("nowlogin");
+
+		if (!storage.getItem("userdata" + logining)) {
+			var data = {
+				name: null,
+				hobby: null,
+				sign: null
+			};
+			var d = JSON.stringify(data);
+			storage.setItem("userdata" + logining, d);
+		}
+
+		function savename() {
+			var name = document.getElementById("myname").value;
+			var json = storage.getItem("userdata" + logining);
+			var user = JSON.parse(json);
+			user.name = name;
+			var d = JSON.stringify(user);
+			storage.setItem("userdata" + logining, d);
+			var username = document.getElementById("username");
+			username.innerText = user.name;
+			var usernamed = document.getElementById("usernamed");
+			usernamed.innerText = user.name;
+		}
+
+		function savehobby() {
+			var hobby = document.getElementById("myhobby").value;
+			var json = storage.getItem("userdata" + logining);
+			var user = JSON.parse(json);
+			user.hobby = hobby;
+			var d = JSON.stringify(user);
+			storage.setItem("userdata" + logining, d);
+			var userhobby = document.getElementById("userhobby");
+			userhobby.innerText = user.hobby;
+		}
+
+		function savesign() {
+			var sign = document.getElementById("mysign").value;
+			var json = storage.getItem("userdata" + logining);
+			var user = JSON.parse(json);
+			user.sign = sign;
+			var d = JSON.stringify(user);
+			storage.setItem("userdata" + logining, d);
+			var usersign = document.getElementById("usersign");
+			usersign.innerText = user.sign;
+			var usersigned = document.getElementById("usersigned");
+			usersigned.innerText = user.sign;
+		}
+	</script>
+	<script type="text/javascript">
+		if (!storage.getItem("usercontain" + logining)) {
+			var data = {
+				shop1: null,
+				shop2: null,
+				shop3: null,
+				shop4: null,
+				shop5: null,
+				shop6: null,
+				shop7: null,
+				shop8: null,
+				shop9: null,
+				shop10: null
+			};
+			var d = JSON.stringify(data);
+			storage.setItem("usercontain" + logining, d);
+		}
+	</script>
+	<script type="text/javascript">
+		if (!storage.getItem("userstar" + logining)) {
+			var data = {
+				text1: null,
+				text2: null,
+				text3: null,
+				text4: null,
+				text5: null,
+				text6: null,
+				text7: null,
+				text8: null,
+				text9: null,
+				text10: null,
+				text11: null,
+				text12: null,
+				text13: null,
+				text14: null,
+				text15: null,
+			};
+			var d = JSON.stringify(data);
+			storage.setItem("userstar" + logining, d);
+		}
+	</script>
+	<script type="text/javascript">
+		if (!storage.getItem("userstarshop" + logining)) {
+			var data = {
+				text1: null,
+				text2: null,
+				text3: null,
+				text4: null,
+				text5: null,
+				text6: null,
+				text7: null,
+				text8: null,
+				text9: null,
+				text10: null
+			};
+			var d = JSON.stringify(data);
+			storage.setItem("userstarshop" + logining, d);
+		}
+	</script>
+	<script language="javascript">
+		function changCss(obj) {
+			var arr = document.getElementsByTagName("a");			
+			var json = storage.getItem("userstar" + logining);
+			var star = JSON.parse(json);
+			var z = obj.id.match(/\d+/g);
+			for (var i = 0; i < arr.length; i++) {
+				if (obj == arr[i] && star['text' + z[0]] == null) {
+					obj.style.backgroundColor = "rgb(119 174 232)";
+					addstarobj(obj);				
+				} else if (obj == arr[i]) {
+					arr[i].style.backgroundColor = "";
+					deletestar(obj);					
+				} else {
+					arr[i].style.backgroundColor = "";
+				}
+			}
+		}
+	</script>
+	<body onLoad="fn()">
+		<div data-role="page" id="pageone">
+			<div data-role="header">
+				<h1>资讯</h1>
+				<a href="#search" class="ui-btn-right" data-role="button" data-icon="search" data-iconpos="notext">search</a>
+			</div>
+			<div style="width: 100%;height: auto;"><a id="mdzz"><img id="image1" style="width: 100%;" /></a></div>
+			<div data-role="main" class="ui-content">
+
+				<ul data-role="listview" data-inset="true" data-icon="false">
+					<li>
+						<a href="#img7">
+							<img class="page1image" src="img/img12/0.jpg">
+							<h2>《罪恶装备：奋战》公开游戏发售后更新路线图</h2>
+
+						</a>
+					</li>
+					<li>
+						<a href="#img8">
+							<img class="page1image" src="img/img12/2.jpg">
+							<h2>《孤岛惊魂6》反派扮演者"炸鸡叔"将出席夏日游戏节</h2>
+						</a>
+					</li>
+					<li>
+						<a href="#img9">
+							<img class="page1image" src="img/img12/6.jpg">
+							<h2>《赛博朋克2077》A测演示泄露！早期版本为第三人称</h2>
+						</a>
+					</li>
+					<li>
+						<a href="#img10">
+							<img class="page1image" src="img/img12/9.jpg">
+							<h2>东方同人作《红魔城蕾米莉亚》将登陆Steam/NS，游戏支持中文</h2>
+						</a>
+					</li>
+					<li>
+						<a href="#img11">
+							<img class="page1image" src="img/img12/13.jpg">
+							<h2>「竞速分数大比拼」分享你的最佳竞速成绩，赢取沙漠之狼套装</h2>
+						</a>
+					</li>
+					<li>
+						<a href="#img12">
+							<img class="page1image" src="img/img12/15.jpg">
+							<h2>《破晓传奇》登场角色及战斗系统等最新情报公布</h2>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" data-icon="home">首页</a></li>
+						<li><a href="#pagetwo" class="ui-btn-active ui-state-persist" data-icon="shop">商城</a></li>
+						<li><a href="#pagethree" class="ui-btn-active ui-state-persist" data-icon="cloud">社区</a></li>
+						<li><a href="#pagefour" class="ui-btn-active ui-state-persist" data-icon="user">我</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> ​
+		<div data-role="page" id="pagetwo">
+			<div data-role="header">
+				<h1>商城</h1>
+				<a href="#" class="ui-btn-right" data-role="button" data-icon="search" data-iconpos="notext">search</a>
+			</div>
+			<div style="width: 100%;height: auto;"><a id="mdzz2" ><img id="image2" style="width: 100%;" /></a></div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<a href="#shop1">
+							<img src="img/sale/0.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2 id="shop1name">只狼：影逝二度</h2>
+							<p id="shopvalue1">￥268</p>
+						</a>
+					</div>
+
+					<div class="ui-block-b">
+						<a href="#shop2">
+							<img src="img/sale/1.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2 id="shop2name">双人成行</h2>
+							<p id="shopvalue2">￥198</p>
+						</a>
+
+					</div>
+					<div class="ui-block-a">
+						<a href="#shop3">
+							<img src="img/sale/2.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2 id="shop3name">魔法迷域</h2>
+							<p id="shopvalue3">￥29</p>
+						</a>
+
+					</div>
+
+					<div class="ui-block-b">
+						<a href="#shop4">
+							<img src="img/sale/3.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2 id="shop4name">双点医院</h2>
+							<p id="shopvalue4">￥39</p>
+						</a>
+
+					</div>
+
+					<div class="ui-block-a">
+						<a href="#shop5">
+							<img src="img/sale/4.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2 id="shop5name">足球经理2021</h2>
+							<p id="shopvalue5">￥124</p>
+						</a>
+					</div>
+
+					<div class="ui-block-b">
+						<a href="#shop6">
+							<img src="img/sale/5.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2 id="shop6name">枪火重生</h2>
+							<p id="shopvalue6">￥33</p>
+						</a>
+					</div>
+					<div class="ui-block-a">
+						<a href="#shop7">
+							<img src="img/sale/6.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2 id="shop7name">极品飞车：热度</h2>
+							<p id="shopvalue7">￥29</p>
+						</a>
+
+					</div>
+
+					<div class="ui-block-b">
+						<a href="#shop8">
+							<img src="img/sale/7.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2 id="shop8name">糖豆人：淘汰赛</h2>
+							<p id="shopvalue8">￥58</p>
+						</a>
+
+
+					</div>
+					<div class="ui-block-a">
+						<a href="#shop9">
+							<img src="img/sale/8.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2 id="shop9name">战地5</h2>
+							<p id="shopvalue9">￥75</p>
+						</a>
+
+					</div>
+
+					<div class="ui-block-b">
+						<a href="#shop10">
+							<img src="img/sale/9.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2 id="shop10name">绝地求生</h2>
+							<p id="shopvalue10">￥98</p>
+						</a>
+
+					</div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" class="ui-btn-active ui-state-persist" data-icon="home">首页</a></li>
+						<li><a href="#pagetwo" data-icon="shop">商城</a></li>
+						<li><a href="#pagethree" class="ui-btn-active ui-state-persist" data-icon="cloud">社区</a></li>
+						<li><a href="#pagefour" class="ui-btn-active ui-state-persist" data-icon="user">我</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="pagethree">
+			<div data-role="header">
+				<h1>社区</h1>
+				<a data-role="button" class="ui-btn-right" data-icon="search" data-iconpos="notext">search</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<ul data-role="listview" data-inset="false" data-icon="false">
+									<li><a><img src="img/img5/1.jpg" class="ui-li-icon">gdtop</a><a href="#" onclick="changCss(this)" id="text13" data-role="button" class="ui-btn-right" data-icon="heart"
+									 data-iconpos="notext"></a></li>
+									
+								</ul>
+								<ul>
+									<a>
+										<p id="startext13">LPL常规赛：Zeka阿卡丽四杀！BLG 2-1 战胜LGD！</p>
+										<p>6月16日，杭州主场LGD大战BLG！第三局比赛，BLG中单选手Zeka操刀阿卡丽，团战中三进三出豪取四杀！下路Aiming的EZ也是输出拉满，BLG以 2-1 战胜LGD！</p>
+									</a>
+								</ul>
+							</div>
+						</div>
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<a href="#bigd11" data-rel="popup" data-position-to="window">
+									<img src="img/imgdd/11.jpg" alt="Runoob">
+								</a>
+								<div data-role="popup" id="bigd11" data-overlay-theme="b">
+									<img src="img/imgdd/11.jpg" style="width:100%;" alt="Runoob">
+								</div>
+							</div>
+							<div class="ui-block-b">
+								<a href="#bigd12" data-rel="popup" data-position-to="window">
+									<img src="img/imgdd/12.jpg" alt="Runoob">
+								</a>
+								<div data-role="popup" id="bigd12" data-overlay-theme="b">
+									<img src="img/imgdd/12.jpg" style="width:100%;" alt="Runoob">
+								</div>
+							</div>
+							<div class="ui-block-c">
+								<a href="#bigd13" data-rel="popup" data-position-to="window">
+									<img src="img/imgdd/13.jpg" alt="Runoob">
+								</a>
+								<div data-role="popup" id="bigd13" data-overlay-theme="b">
+									<img src="img/imgdd/13.jpg" style="width:100%;" alt="Runoob">
+								</div>
+							</div>
+						</div>
+
+						
+
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<ul data-role="listview" data-inset="false" data-icon="false">
+									<li><a><img src="img/img5/2.jpg" class="ui-li-icon">Duck不必</a><a href="#" onclick="changCss(this)" id="text15" data-role="button" class="ui-btn-right" data-icon="heart"
+									 data-iconpos="notext"></a></li>
+								</ul>
+								<ul>
+									<a>
+										<p id="startext14">社区热议：PCS4第二周角逐明日开启，你最看好哪支队伍？</p>
+										<p>PCS4洲际赛第一周的竞争已落下帷幕，第二周的激烈角逐将于明日开启。在第一周的竞争中，各赛区有黑马也有拉跨，那么，你最看好的是哪支队伍？</p>
+									</a>
+								</ul>
+							</div>
+						</div>
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<a href="#bigd21" data-rel="popup" data-position-to="window">
+									<img src="img/imgdd/21.jpg" alt="Runoob">
+								</a>
+								<div data-role="popup" id="bigd21" data-overlay-theme="b">
+									<img src="img/imgdd/21.jpg" style="width:100%;" alt="Runoob">
+								</div>
+							</div>
+							<div class="ui-block-b">
+								<a href="#bigd22" data-rel="popup" data-position-to="window">
+									<img src="img/imgdd/22.jpg" alt="Runoob">
+								</a>
+								<div data-role="popup" id="bigd22" data-overlay-theme="b">
+									<img src="img/imgdd/22.jpg" style="width:100%;" alt="Runoob">
+								</div>
+							</div>
+							<div class="ui-block-c">
+								<a href="#bigd23" data-rel="popup" data-position-to="window">
+									<img src="img/imgdd/23.jpg" alt="Runoob">
+								</a>
+								<div data-role="popup" id="bigd23" data-overlay-theme="b">
+									<img src="img/imgdd/23.jpg" style="width:100%;" alt="Runoob">
+								</div>
+							</div>
+						</div>
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<ul data-role="listview" data-inset="false" data-icon="false">
+									<li><a><img src="img/img5/3.jpg" class="ui-li-icon">masaka</a><a href="#" onclick="changCss(this)" id="text14" data-role="button" class="ui-btn-right" data-icon="heart"
+									 data-iconpos="notext"></a></li>
+								</ul>
+								<ul>
+									<a>
+										<p id="startext15">BLAST春季总决赛：德国战车滚滚向前！XANTARES强势发挥带领BIG 2-1战胜G2</p>
+										<p>BLAST春季总决赛第二日，由淡出我们视线一段时间的BIG对战G2。相对于年初的BIG，这辆载着土耳其人的德国战车开始出现些许故障，不知是自己队伍水平有所下降，还是其他队伍的实力在提升。尽管如此，希望他们已经返厂修好，在这次比赛中能打出好成绩。</p>
+									</a>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<a href="#bigd31" data-rel="popup" data-position-to="window">
+									<img src="img/imgdd/31.jpg" alt="Runoob">
+								</a>
+								<div data-role="popup" id="bigd31" data-overlay-theme="b">
+									<img src="img/imgdd/31.jpg" style="width:100%;" alt="Runoob">
+								</div>
+							</div>
+							<div class="ui-block-b">
+								<a href="#bigd32" data-rel="popup" data-position-to="window">
+									<img src="img/imgdd/32.jpg" alt="Runoob">
+								</a>
+								<div data-role="popup" id="bigd32" data-overlay-theme="b">
+									<img src="img/imgdd/32.jpg" style="width:100%;" alt="Runoob">
+								</div>
+							</div>
+							<div class="ui-block-c">
+								<a href="#bigd33" data-rel="popup" data-position-to="window">
+									<img src="img/imgdd/33.jpg" alt="Runoob">
+								</a>
+								<div data-role="popup" id="bigd33" data-overlay-theme="b">
+									<img src="img/imgdd/33.jpg" style="width:100%;" alt="Runoob">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" class="ui-btn-active ui-state-persist" data-icon="home">首页</a></li>
+						<li><a href="#pagetwo" class="ui-btn-active ui-state-persist" data-icon="shop">商城</a></li>
+						<li><a href="#pagethree" data-icon="cloud">社区</a></li>
+						<li><a href="#pagefour" class="ui-btn-active ui-state-persist" data-icon="user">我</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> ​
+
+		<div data-role="page" id="pagefour">
+			<div data-role="panel" id="overlayPanel" data-display="overlay" data-position="right">
+				<div data-role="main" class="ui-content">
+					<div class="ui-grid-solo">
+						<div class="ui-block-a">
+							<ul data-role="listview" data-inset="true">
+								<li>
+									<a href="#anquan" class="ui-btn ui-icon-clock ui-btn-icon-left">
+										<h2>账号与安全</h2>
+									</a>
+								</li>								
+								<li>
+									<a href="#shop" class="ui-btn ui-icon-shop ui-btn-icon-left">
+										<h2>关于游戏商城</h2>
+									</a>
+								</li>
+								<li>
+									<a href="login.html" class="ui-btn ui-icon-shop ui-btn-icon-left">
+										<h2>切换账号</h2>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+					<div data-role="navbar">
+						<ul>
+							<li>
+								<a href="login.html">
+									<h2>退出登录</h2>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div data-role="header">
+				<h2>我</h2>
+				<a data-role="button" href="#emilbox" class="ui-btn-right" data-icon="mail" data-iconpos="notext">gear</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<ul data-role="listview" data-inset="false" data-icon="false">
+									<li><a href="#userset"><img src="img/img5/2.jpg">
+											<h2 id="usernamed"></h2>
+											<p id="usersigned"></p>
+										</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<ul data-role="listview" data-inset="false" data-icon="false">
+									<li><a></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<ul data-role="listview" data-inset="true">
+									<li>
+										<a href="#record" class="ui-btn ui-icon-clock ui-btn-icon-left">
+											<h2>收藏</h2>
+										</a>
+									</li>
+									<li>
+										<a href="#containful" class="ui-btn ui-icon-grid ui-btn-icon-left">
+											<h2>游戏库存</h2>
+										</a>
+									</li>
+									<li>
+										<a href="#shopcar" class="ui-btn ui-icon-shop ui-btn-icon-left">
+											<h2>购物车 </h2>
+										</a>
+									</li>
+									<li>
+										<a href="#overlayPanel" class="ui-btn ui-icon-gear ui-btn-icon-left">
+											<h2>设置</h2>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" class="ui-btn-active ui-state-persist" data-icon="home">首页</a></li>
+						<li><a href="#pagetwo" class="ui-btn-active ui-state-persist" data-icon="shop">商城</a></li>
+						<li><a href="#pagethree" class="ui-btn-active ui-state-persist" data-icon="cloud">社区</a></li>
+						<li><a href="#pagefour" data-icon="user">我</a></li>
+					</ul>
+				</div>
+			</div>
+		</div> ​
+
+		<div data-role="page" id="img1">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					幻觉
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text1" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#big0" data-rel="popup" data-position-to="window">
+							<img src="img/img3/0.jpg" alt="Runoob">
+
+						</a>
+						<a>
+							<h2 id="startext1">「测评Roll周边」国产都市科幻恋爱类AVG是如何找到三者平衡点的？</h2>
+							<p>作者：灰烬天国</p>
+							<p>大家好，我是灰烬天国也是这次《幻觉hallucination》的制作人terric，人称阿抽，很高兴这次能与大家聊聊一些这次制作幕后的故事。</p>
+						</a>
+						<div data-role="popup" id="big0" data-overlay-theme="b">
+							<img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a href="#big1" data-rel="popup" data-position-to="window">
+							<img src="img/img3/1.jpg" alt="Runoob">
+						</a>
+						<a>
+							<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+						</a>
+						<div data-role="popup" id="big1" data-overlay-theme="b">
+							<img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a href="#big2" data-rel="popup" data-position-to="window">
+							<img src="img/img3/2.jpg" alt="Runoob">
+						</a>
+						<a>
+							<p>当然老核心组没变，这一点还请大家放心，那些大家熟悉的人都还在，除了头发少了，《幻觉》也同样保持着原先的味道。真要说特别明显的变化，那大概就是阿抽比之前更穷了点吧。</p>
+						</a>
+						<div data-role="popup" id="big2" data-overlay-theme="b">
+							<img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h2>幻觉的故事</h2>
+						</a>
+						<a href="#big3" data-rel="popup" data-position-to="window">
+							<img src="img/img3/3.jpg" alt="Runoob">
+						</a>
+						<a>
+							<p>灰烬天国全部作品一直都处于迭代状态，如果是关注我们的人就会发现我们每部作品都会在上一部作品的基础上，总结经验并进行改进。
+								这次《幻觉》的故事我经常说已经推翻重来了十多次，这并不是夸张，从反转到逻辑到节奏最后到情绪，每一轮大纲都会发现在这些方面不同程度地欠缺，直到最后一版也并非是心目中最好的一版，仅仅是定下了基本框架。
+							</p>
+						</a>
+						<div data-role="popup" id="big3" data-overlay-theme="b">
+							<img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a href="#big4" data-rel="popup" data-position-to="window">
+							<img src="img/img3/4.jpg" alt="Runoob">
+						</a>
+						<a>
+							<p>在剧本写作的过程中也有对最终版的大纲进行修改与优化，甚至有直接推翻大纲中某情节，添加替换新情节的情况出现。偷偷说一句，评论中有些脑补的情节，也是我们原先有想过的，至于是哪些呢？就暂时不透露了。
+							</p>
+						</a>
+						<div data-role="popup" id="big4" data-overlay-theme="b">
+							<img src="img/img3/4.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+					<div class="ui-block-a">
+						<a href="#big5" data-rel="popup" data-position-to="window">
+							<img src="img/img3/5.jpg" alt="Runoob">
+						</a>
+						<a>
+							<p>经过了多轮迭代与打磨，《幻觉》终于能与大家见面。玩过的玩家应该会发现，之前经常被人吐槽的各种演出方面的问题，诸如白屏闪等等这次都已经做了修正，而在剧情方面的逻辑也尽量做到的严谨，反转方面也进行了多层设计。《幻觉》的故事从我的角度上看，应该是目前灰烬天国所有作品中最成熟的一个了。
+							</p>
+						</a>
+						<div data-role="popup" id="big5" data-overlay-theme="b">
+							<img src="img/img3/5.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+					<div class="ui-block-a">
+						<a href="#big6" data-rel="popup" data-position-to="window">
+							<img src="img/img3/6.jpg" alt="Runoob">
+						</a>
+						<a>
+							<h2>世界观的设计</h2>
+							<p>当然我们也并不会满足，止步于此。我也知道《幻觉》的故事虽然已经有了较大的进步但并不算完美，大家的测评我也都看在眼里，活到老学到老，我们也会吸取经验教训，不断打磨自己的故事。
+							</p>
+						</a>
+						<div data-role="popup" id="big6" data-overlay-theme="b">
+							<img src="img/img3/6.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+					<div class="ui-block-a">
+						<a href="#big7" data-rel="popup" data-position-to="window">
+							<img src="img/img3/7.jpg" alt="Runoob">
+						</a>
+						<a>
+							<p>除了故事以外，我们其实也有意去构建一个近未来科幻风的世界。《幻觉》与《旧手表》虽然故事完全不一样，但同属于project
+								I系列。相比于《不落城》与《神明的一天世界》，project I系列的风格有着较为明显的特点，也着重往“大”与“开放”上去设计。
+
+								这次我们加入AR游戏，虚拟主播等时下比较热门的元素，当然除此之外也能在《幻觉》中找到传统科幻风格的元素，诸如虚拟人格，记忆读取等等。校园恋爱元素也是AVG必不可少的，我们将这些元素进行了提取整合进了《幻觉》这个故事里。
+
+								整个project
+								I系列本身就有一套比较大的世界观，里面可以展开的东西包括时间跨度可能都会超出大家的预料。至于近未来科幻题材，除了个人比较热衷以外，我觉得本身也算是一种浪漫吧，科幻发展至社会学领域这块没记错的话应该是在上世纪八十年代左右，有不少的确给了人们在今后发展科技上一些启示。在这一块除了我以外国外也有很多类似题材的作品，例如《命运石之门》之类的。
+							</p>
+						</a>
+						<div data-role="popup" id="big7" data-overlay-theme="b">
+							<img src="img/img3/7.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<a>
+							</a>
+						</ul>
+					</div>
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<a>
+								<h2>全部评论</h2>
+							</a>
+						</ul>
+					</div>
+					
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li data-icon="heart"><a><img src="img/img5/2.jpg" class="ui-li-icon">男同淮北分同<span class="ui-li-count">25</span></a></li>
+						</ul>
+						<ul>
+							<a>
+								<p>大家好，我是灰烬天国也是这次《幻觉hallucination》的制作人terric，人称阿抽，很高兴这次能与大家聊聊一些这次制作幕后的故事。</p>
+							</a>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img2">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					咪莫
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text2" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#big10" data-rel="popup" data-position-to="window">
+							<img src="img/img7/0.jpg" alt="Runoob">
+
+						</a>
+						<a>
+							<h2 id="startext2">预约《咪莫》领喵星人头像框！赢实体解谜书邀请函</h2>
+							<p>作者：咪莫警官</p>
+							<p>Hello呀，画风可爱但是又极其烧脑的《咪莫》马上就要上线了呢！在这里警官我给大家带来了一波预约游戏送限定头像框的活动哦，同时还有定制版的游戏徽章与实体解谜书~一起来看看吧。
+							</p>
+						</a>
+						<div data-role="popup" id="big10" data-overlay-theme="b">
+							<img src="img/img7/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>【活动内容&时间】</h3>
+						</a>
+						<a href="#big11" data-rel="popup" data-position-to="window">
+							<img src="img/img7/1.jpg" alt="Runoob">
+							<img src="img/img7/2.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big11" data-overlay-theme="b">
+							<img src="img/img7/1.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img7/2.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>【参与方式】</h3>
+						</a>
+						<a href="#big12" data-rel="popup" data-position-to="window">
+							<img src="img/img7/3.jpg" alt="Runoob">
+							<img src="img/img7/4.jpg" alt="Runoob">
+							<img src="img/img7/5.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big12" data-overlay-theme="b">
+							<img src="img/img7/3.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img7/4.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img7/5.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>【活动奖励】</h3>
+						</a>
+						<a href="#big13" data-rel="popup" data-position-to="window">
+							<img src="img/img7/6.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big13" data-overlay-theme="b">
+							<img src="img/img7/6.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>【活动规则】</h3>
+						</a>
+						<a href="#big14" data-rel="popup" data-position-to="window">
+							<img src="img/img7/7.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big14" data-overlay-theme="b">
+							<img src="img/img7/7.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+					<div class="ui-block-a">
+						<a>
+							<h3>【关于《咪莫》和我们】</h3>
+							<p>大家好，我们是奥秘之家~</p>
+							<p>可能大家对于我们还不是很熟悉，也或许你在线下密室、或是故宫的《谜宫》系列、《漫威：绝密档案》和《侦探笔记》这些解谜书中了解到过我们。在密室和解谜书之外，我们也一直梦想可以制作出一款属于我们自己的精品解谜手游。
+							</p>
+						</a>
+						<a href="#big15" data-rel="popup" data-position-to="window">
+							<img src="img/img7/00.gif" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big15" data-overlay-theme="b">
+							<img src="img/img7/00.gif" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							作为一名喵界的热血警察，临危受命抓捕江洋大盗的你，在点开游戏的那一刻，便开启了一段惊心动魄的惊险追捕！在各种脑洞大开的搜集线索操作中，点触类密室解谜游戏的优势就显现了！这其中不仅有难度适中、环环相扣的搜索谜题，同时沉浸式的游戏剧情也将带领你一步一步跟随故事发展开启越来越多颠覆常规、打破脑洞的神操作！
+						</a>
+						<a href="#big16" data-rel="popup" data-position-to="window">
+							<img src="img/img7/11.gif" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big16" data-overlay-theme="b">
+							<img src="img/img7/11.gif" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							拥有着动画片《鸭子神探》般的上世纪复古画风，还有许多令人会心一笑的猫梗，这就是你的快乐星球！画风突变，支离破碎的二周目开启，这是怎样一个破碎的世界？而你，又将面临哪些离奇的挑战？请一定要玩到二周目！如果不怕烧脑，就试试打出两个结局吧！当然，如果你是解谜大神，请一定要破解隐藏关卡！
+						</a>
+						<a href="#big17" data-rel="popup" data-position-to="window">
+							<img src="img/img7/22.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big17" data-overlay-theme="b">
+							<img src="img/img7/22.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img3">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					鬼泣-巅峰之战
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text3" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a>
+							<h2 id="startext3">卡普空记录片首曝！《鬼泣-巅峰之战》公测正式定档6月11日</h2>
+							<p>作者：xguo</p>
+							<p> CAPCOM殿堂级动作游戏《鬼泣-巅峰之战》燃魂公测正式定档6月11日！</p>
+							<p>作为备受关注的动作游戏天花板《鬼泣》系列在移动平台上的首部作品，游戏以主机级画面品质展现暗黑哥特大世界，凭借始终贯彻华丽炫酷的动作表现，带给恶魔猎人们无与伦比的游戏体验！为庆贺公测的到来，CAPCOM的主创团队们特意送来了一段记录片，快随我们一起来看看吧！
+							</p>
+						</a>
+						<a href="#big20" data-rel="popup" data-position-to="window">
+							<img src="img/img8/0.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big20" data-overlay-theme="b">
+							<img src="img/img8/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>【多一维的动作游戏】</h3>
+							<p>《鬼泣》系列至今已走过20个年头，其独树一帜的特色战斗方式，使其在全世界范围内都为人称道。如今这款位于动作巅峰的游戏推出正版授权手游，完美复现踩怪、魔化，弹反等鬼泣招牌操作。二段跳、空中闪避等位移机制，让战斗脱离地面的束缚，尽情享受自由自在的皇牌空战。手游不仅实现了手机平台支持手柄操作，同时还有专门针对移动平台进行了按键优化，各位完全无需担心操作门槛，体验无限连击的畅快！
+							</p>
+						</a>
+						<a href="#big21" data-rel="popup" data-position-to="window">
+							<img src="img/img8/1.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big21" data-overlay-theme="b">
+							<img src="img/img8/1.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>【主机级的战斗表现才够酷炫】</h3>
+							<p>鬼泣系列的另一大亮点，正是其暗黑哥特式风格的奇诡世界，恶魔与人类的纷乱之中，书写另类英雄物语。原作超人气角色但丁、蕾蒂、维吉尔均将在手游中登场，亦精致还原主副双武器系统设计，连招自主掌控，享受指尖起舞的快感！全方位视角切换，带来主机级画质下的全屏幕大魄力实感战斗及场景展现，置身其中，时刻享受惊险刺激的视觉盛宴。光影缭乱，恶魔猎人们华丽登场！
+							</p>
+						</a>
+						<a href="#big22" data-rel="popup" data-position-to="window">
+							<img src="img/img8/2.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big22" data-overlay-theme="b">
+							<img src="img/img8/2.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>【探索猎魔故事的全新篇章】</h3>
+							<p>手游剧情将继续围绕着经典人气角色但丁的战斗展开，并通过《鬼泣-巅峰之战》将故事带向新的高度。CAPCOM全程监制，携手云畅游戏全新原创《鬼泣》系列故事，并将开放从未公布的，也是极具危险与氛围感的崭新领域，随着诸多势力的登场与指引，在战斗重启的时刻，更多不为人知的神秘战斗将由你来揭开！
+							</p>
+						</a>
+						<a href="#big23" data-rel="popup" data-position-to="window">
+							<img src="img/img8/3.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big23" data-overlay-theme="b">
+							<img src="img/img8/3.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>【玩家面对面，共研计划进行中】</h3>
+							<p>《鬼泣-巅峰之战》手游制作组开启了“共研计划”，盛邀广大关心热爱鬼泣的粉丝们加入，为游戏提供优良建议。一个月来，手游分别从道具减负、付费调整、战斗优化、美术调整四大方面进行了大刀阔斧的调整工作。上至删除技能书改善玩家前期挑战体验，下至材质精修关卡场景大翻新，只为让大家在公测时的旅途会有更加畅快的游戏体验，三年初心，不负期待！
+							</p>
+						</a>
+						<a href="#big24" data-rel="popup" data-position-to="window">
+							<img src="img/img8/4.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big24" data-overlay-theme="b">
+							<img src="img/img8/4.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>恶魔不再哭泣，战斗即将燃起！《鬼泣-巅峰之战》燃魂公测6月11日正式开启，隐藏于世界各地的恶魔猎人呀，现在参与小黑盒预约集结活动，豪华福利等你来拿哦！</p>
+						<a>预约《鬼泣-巅峰之战》头像框活动，赢正版周边拿专属头像框！</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img4">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					宝可梦大探险
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text4" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#big30" data-rel="popup" data-position-to="window">
+							<img src="img/img9/0.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big30" data-overlay-theme="b">
+							<img src="img/img9/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2 id="startext4">【已开奖】戴方头像参与活动，赢《宝可梦大探险》限定鼠标垫和皮卡丘帽子</h2>
+							<p>作者：手游摸鱼娘</p>
+							<h3>开奖</h3>
+						</a>
+						<a href="#big31" data-rel="popup" data-position-to="window">
+							<img src="img/img9/3.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big31" data-overlay-theme="b">
+							<img src="img/img9/3.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>大家已经佩戴好方可梦的大头像去和社区里的其他人打过招呼了吗~今天摸鱼娘是想在背后推大家一把。让更多的宝可梦训练师多多参与方头像的活动哦~</p>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>【活动方式】</h3>
+							<a>点击让头像方起来</a>
+							<p>佩戴方可梦头像在本帖评论中发布《方可梦大探险》下载成功截图~</p>
+						</a>
+						<a href="#big32" data-rel="popup" data-position-to="window">
+							<img src="img/img9/1.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big32" data-overlay-theme="b">
+							<img src="img/img9/1.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>【活动时间】</h3>
+							<p>2021年05月17日—2021年05月31日</p>
+							<h3>【活动奖励】</h3>
+							<p>1.限定版皮卡丘帽子x10；</p>
+							<p>2.方萌鼠标垫x20；</p>
+							<h3>【奖品一栏】</h3>
+						</a>
+						<a href="#big33" data-rel="popup" data-position-to="window">
+							<img src="img/img9/2.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big33" data-overlay-theme="b">
+							<img src="img/img9/2.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img5">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					儿童节^0^
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text5" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a>
+							<h2 id="startext5">又是一年儿童节，却再也记不起淘米账号</h2>
+							<p>作者：蒸汽局的小伙夫</p>
+							<p>六一儿童节，我们一起回“家”看看吧！</p>
+							<p>今天是6月1号，人生的第二十一个儿童节，而期待许久的《摩尔庄园》手游终于上线，本来想去重温一下网页版，却找不到入口了，而我曾经以为会铭记一辈子的淘米账号也被遗忘在岁月长河中。
+							</p>
+							<p>我至今还记得08年国庆前夕《摩尔时报》头版是“超级拉姆”上线，而15年的圣诞节《摩尔时报》被圣诞老人带走了，克劳神父，彩虹姐姐以及那个庄园里的每个NPC都已经随风消散了。</p>
+							<p>哦对，我好像想起来了，我庄园里的茄子还没收，它们 应该永远年轻吧，而我们都终将老去。</p>
+						</a>
+						<a href="#big40" data-rel="popup" data-position-to="window">
+							<img src="img/img10/8.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big40" data-overlay-theme="b">
+							<img src="img/img10/8.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<h3>洛克王国：十年同游，仍是少年</h3>
+							<p>熟悉的界面，熟悉的音乐，把我拉回了初中那个夏天，连接上服务器后出现了熟悉的王国城堡，曾在这里接受了王国的嘱托，励志成为一名伟大的魔法师。背包里依旧放着那六个宠物球，它们曾经是我无数个日夜的心血和骄傲，陪着我走过了一个走完了一段奇幻冒险之旅。
+							</p>
+							<p>我看着安静躺在背包里的火神（火花）、水灵（水蓝蓝）、魔力猫（喵喵）、黄金独角兽（小独角兽）、迪莫、喷火鸟（呆火鸟），轻轻在心中默念“你们还好吗？我回来了！”。</p>
+							<p>这一次我回家了，也会带你们回家看看</p>
+						</a>
+						<a href="#big41" data-rel="popup" data-position-to="window">
+							<img src="img/img10/0.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big41" data-overlay-theme="b">
+							<img src="img/img10/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<p>我决定第一站先回家，回到家园看看还在修炼的宠物少林呱呱和灵魂守护，我还记得小时候我被玄玉的谜题困住，开了第一个会员才飞进了深处；灵魂守护则是由管家盾进化而来的，为了得到它而下载了腾讯电脑管家。
+							</p>
+							<p>那面勋章墙记录了我曾经的骄傲和辉煌，草系徽章来自宠物园的罗兰，水系徽章来自亚特兰蒂斯的乐乐，火系徽章来自维苏威火山的科伦尔与科伦斯，冰系徽章来自怀特冰川的冰封骑士，他们是我敌人，也是我的朋友，见证了一路走来的风雨和成长。
+							</p>
+							<p>最大的遗憾就是最后两枚徽章仍是灰色——机械系和龙系，来到农场，首先映入眼帘的就是可可果树，那是宠物升级的秘籍，每一天的耕耘都是等待它结出果实，而这一次却是整整60个，却再也没有儿时的喜悦。
+							</p>
+						</a>
+						<a href="#big42" data-rel="popup" data-position-to="window">
+							<img src="img/img10/2.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big42" data-overlay-theme="b">
+							<img src="img/img10/2.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>再见了我的家，轻轻关上家门，打开地图，我的下站是宠物园，在这里我和我的初始伙伴火苗击败了第一个敌人蹦蹦种子，收获了第一个宠物呆火鸟，而它也是我的第一只一百级宠物，那怕它同其他宠物相比很弱，但它本为走地鸡，却能能化身为鸟展翅高飞。
+						</p>
+						<h3>喷火鸟，你可以回家了！</h3>
+						<p>撑着和煦的风，沿着常满绿草的小径，一路向草原深处迈去，身边的每一个宠物都没有改变，他们静静躺在这个奇幻世界，纵使沧海桑田。黄金独角兽，你知道吗？这颗大树就是你单身的地方，曾经连续七天每天都来浇水，才迎来了你的出生。
+						</p>
+						<h3>黄金独角兽，你可以回家！</h3>
+						<a href="#big43" data-rel="popup" data-position-to="window">
+							<img src="img/img10/3.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big43" data-overlay-theme="b">
+							<img src="img/img10/3.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>不曾忘，不敢忘，我的第一个伙伴火花，我不知道它知不知道它的家在维苏威火山，因为我是在王国城堡见到它的，它应该很小就离开了故乡，就像曾经的我一样，而两个在外漂泊的孩子相遇在了一起，隔着屏幕，彼此陪伴，彼此成长。
+						</p>
+						<p>火神，你还记得在这里你伴着我拿到了我的第二个徽章火徽章吗？那时候，憨憨的我不懂属性相克，选择让你上场，因为你是我最初的伙伴，我最强的肩膀。</p>
+						<h3>火神，你可以回家了！</h3>
+						<a href="#big44" data-rel="popup" data-position-to="window">
+							<img src="img/img10/4.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big44" data-overlay-theme="b">
+							<img src="img/img10/4.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>第三站，人鱼湾，相传人鱼湾隐藏着传说中沉没之城亚特兰蒂斯的入口，你还记得入口在哪里吗？在右上角的海洋研究所中，而从那里进入亚特兰蒂斯还必须学会避水术，听着人鱼的歌声，在神秘的水下宫殿畅游。
+						</p>
+						<p>而在这里，我遇到了水蓝蓝，曾是我无比想选择的初始宠物，我不知道你为什么会选择跟随我，离开这片生你育你的海洋，但你一定跟我有着相同理想和热爱，被这个王国更多人看见和崇敬。</p>
+						<h3>水灵，你可以回家了！</h3>
+						<a href="#big45" data-rel="popup" data-position-to="window">
+							<img src="img/img10/5.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big45" data-overlay-theme="b">
+							<img src="img/img10/5.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>第四站玄玉岛，“忽逢桃花林，夹岸数百步，中无杂树，芳草鲜美，落英缤纷”，小时候不知人间疾苦的我很难以想象桃花源会是一个怎样的世界？而在云烟桃源里，看到了理想中的桃花源，四季如春，桃花永不凋零，传来阵阵水车声，宁静而美好。
+						</p>
+						<p>少林呱呱，你知道吗？在无数习武的少林呱呱里，我和你却命中注定。大大脑袋、长长的耳朵，手持长棍，行走于江湖，留下一个传说。</p>
+						<h3>少林呱呱，你可以回家了！</h3>
+						<a href="#big46" data-rel="popup" data-position-to="window">
+							<img src="img/img10/6.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big46" data-overlay-theme="b">
+							<img src="img/img10/6.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>最后一站，回到最初的起点王国城堡，我已经不记得它最初的样子了，但一定没有现在这么豪华，我的王国现在的版图不断扩大，实力日渐强大，而曾经行走在这里的魔法师而早已不见。</p>
+						<p>最后陪在我身边的是迪莫，对不起，我已经忘记你来自那里了，那么就由你陪我停留在这里吧，这一刻便是一生。</p>
+						<a href="#big47" data-rel="popup" data-position-to="window">
+							<img src="img/img10/7.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big47" data-overlay-theme="b">
+							<img src="img/img10/7.jpg" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+						<a>
+							<p>关闭浏览器，一个时代就此结束。现在的王国，多了太多我不认识的地方，但我遇到很多老洛克，他们应该也是在六一节前来看一眼这个地方的。</p>
+							<p>关于童年，总有无数的话想说，但在此刻，却不想多言。玩过了无数的游戏，见证了太多精彩，可记忆最深的，最不舍的依然是那个flash时代。</p>
+							<p>六一了，我们一起回家看看好吗？</p>
+						</a>
+						<a href="#big48" data-rel="popup" data-position-to="window">
+							<img src="img/img10/9.gif" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big48" data-overlay-theme="b">
+							<img src="img/img10/9.gif" style="width:100%;" alt="Runoob">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img6">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					《Erica》
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text6" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a>
+							<h2 id="startext6">【《Erica》真正意义上的"电影互动游戏"</h2>
+							<p>作者：撬棍二筒</p>
+							<p>我玩过不少电影互动式游戏，像《隐形守护者》《夜班》《超级情圣》。这类游戏往往市场很小，但是价格也很低廉，玩家与游戏互动太少，只能做一些选择，有些还无关紧要，就没什么参与感，像是在看一部电影。
+							</p>
+							<p>但是《Erica》打破了我对电影互动式游戏的固有思想，实现真正意义上的“电影互动”,游戏中需要操作的地方很多，不过游戏是从主机上移植过来的，所以鼠标适配不是很好，游戏大部分流程中都需要玩家去操作从而推进剧情。
+							</p>
+						</a>
+						<a href="#big50" data-rel="popup" data-position-to="window">
+							<img src="img/img11/1.jpg" alt="Runoob">
+							<img src="img/img11/2.jpg" alt="Runoob">
+							<img src="img/img11/3.jpg" alt="Runoob">
+							<img src="img/img11/4.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big50" data-overlay-theme="b">
+							<img src="img/img11/1.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img11/2.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img11/3.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img11/4.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>故事围绕着女主从小被父亲告知自己有看到未来的“特性”展开。</p>
+						<a href="#big51" data-rel="popup" data-position-to="window">
+							<img src="img/img11/5.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big51" data-overlay-theme="b">
+							<img src="img/img11/5.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>但父亲却被一位蒙面凶手杀死，从而那位蒙面杀手成为了女主挥之不去的阴影。（女主记忆深处记住了凶手的样貌，本来就已经扑朔迷离的真相变得更加难以捉摸。）</p>
+						<a href="#big52" data-rel="popup" data-position-to="window">
+							<img src="img/img11/6.jpg" alt="Runoob">
+							<img src="img/img11/7.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big52" data-overlay-theme="b">
+							<img src="img/img11/6.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img11/7.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>几年后女主却又收到了跟父亲死亡相关的线索，故事由此展开，剧情有大量的选择内容，且都会产生不同的分支，也是我觉得这个游戏最有特点的地方，没有多余的废话，近乎每一个选项都很重要，这也是为什么一个2-3小时的游戏却拥有着27个g的体量
+						</p>
+						<a href="#big53" data-rel="popup" data-position-to="window">
+							<img src="img/img11/8.jpg" alt="Runoob">
+							<img src="img/img11/9.jpg" alt="Runoob">
+							<img src="img/img11/10.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big53" data-overlay-theme="b">
+							<img src="img/img11/8.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img11/9.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img11/10.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>后面就不过多剧透了，剧情有很多反转，需游玩自己体会，游戏本质上是个恐怖游戏但实际上并没有太多吓人的地方，主要靠的是优秀的bgm和浓厚的游戏氛围来实现心里恐惧带来的压抑感。</p>
+						<a href="#big54" data-rel="popup" data-position-to="window">
+							<img src="img/img11/11.jpg" alt="Runoob">
+							<img src="img/img11/12.jpg" alt="Runoob">
+							<img src="img/img11/13.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big54" data-overlay-theme="b">
+							<img src="img/img11/11.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img11/12.jpg" style="width:100%;" alt="Runoob">
+							<img src="img/img11/13.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<p>总结:《Eric》是一款优秀的电影互动游戏，游戏唯一的缺点就是键鼠的适配，和玩家反映普遍的闪退（但作者通关就闪退了一次）但优秀的bgm，演员扎实的演技和颜值足以盖过（美女谁不爱呀）,且五个结局和必须多周目才能理解的剧情，在电影互动式游戏中算是性价比最高的了。
+						</p>
+						<p>也许《Erica》真的能打破玩家对电影互动式游戏的固有思维，因为它不仅仅是一部“电影”。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img7">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					罪恶装备：奋战
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text7" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#big60" data-rel="popup" data-position-to="window">
+							<img src="img/img12/0.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big60" data-overlay-theme="b">
+							<img src="img/img12/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2 id="startext7">《罪恶装备：奋战》公开游戏发售后更新路线图</h2>
+							<p>作者：新闻速递君</p>
+							<p>近日，Arc System Works旗下格斗游戏《罪恶装备：斗争》公开了游戏发售后的更新路线图，除了确认的新角色Happy Chaos之外，今年预计推出总计五名DLC角色。
+							</p>
+							<p>前两名DLC角色分别会在今年的7月和8月登场，其他DLC角色预计将在2021年秋季推出，届时还将追加两种新的对战场景和额外的剧情故事。</p>
+							<a href="#big61" data-rel="popup" data-position-to="window">
+								<img src="img/img12/1.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="big61" data-overlay-theme="b">
+								<img src="img/img12/1.jpg" style="width:100%;" alt="Runoob">
+							</div>
+							<p>《罪恶装备：斗争》将于6月11日正式发售，预计登陆PS5/PS4/PC（Steam）平台。预购终极版和豪华版的玩家可在6月8日时游玩本作的全部游戏模式、体验全部剧情模式内容以及15位首发角色。
+							</p>
+
+						</a>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img8">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					孤岛惊魂6
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text8" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#big70" data-rel="popup" data-position-to="window">
+							<img src="img/img12/2.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big70" data-overlay-theme="b">
+							<img src="img/img12/2.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2 id="startext8">《孤岛惊魂6》反派扮演者"炸鸡叔"将出席夏日游戏节</h2>
+							<p>作者：xguopuls</p>
+							<p>今年的夏日游戏节将于北京时间6月11日凌晨2点正式举办，届时将有一众游戏厂商参加。今天在其官方推特上公布了将出席的嘉宾，是来自《孤岛惊魂6》反派的扮演者“炸鸡叔”。下面让我们一起来看看吧！
+							</p>
+							<a href="#big71" data-rel="popup" data-position-to="window">
+								<img src="img/img12/3.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="big71" data-overlay-theme="b">
+								<img src="img/img12/3.jpg" style="width:100%;" alt="Runoob">
+							</div>
+							<p>根据官方发布的消息来看吉安卡罗·埃斯波西托将出席今年的夏日游戏节，此前他曾出演《绝命毒师》等经典剧集给观众们留下了深刻印象。而即将在今年10月发售的《孤岛惊魂6》的反派也将由他来饰演，或许在今年的夏日游戏节上我们也能看到更多关于这款游戏的消息。
+							</p>
+							<a href="#big72" data-rel="popup" data-position-to="window">
+								<img src="img/img12/4.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="big72" data-overlay-theme="b">
+								<img src="img/img12/4.jpg" style="width:100%;" alt="Runoob">
+							</div>
+							<p>由育碧多伦多工作室研发的《孤岛惊魂6》将玩家带到位于当代游击革命的心脏地带：雅拉。当地总统安东·卡斯蒂约（由炸鸡叔饰演）誓言让自己的国家恢复昔日的光彩，同时培养他的儿子迭戈跟随他的脚步。
+								玩家将扮演主角丹尼·罗哈斯，为团结国家以及对抗安东·卡斯蒂约的统治而战。</p>
+							<a href="#big73" data-rel="popup" data-position-to="window">
+								<img src="img/img12/5.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="big73" data-overlay-theme="b">
+								<img src="img/img12/5.jpg" style="width:100%;" alt="Runoob">
+							</div>
+
+						</a>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img9">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					赛博朋克2077
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text9" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#big80" data-rel="popup" data-position-to="window">
+							<img src="img/img12/6.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big80" data-overlay-theme="b">
+							<img src="img/img12/6.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2 id="startext9">《赛博朋克2077》A测演示泄露！早期版本为第三人称</h2>
+							<p>作者：火爆大辣椒</p>
+							<p>《赛博朋克2077》在发售前应该是大部分玩家最期待的游戏之一，游戏采用第一人称营造了一个沉浸式的赛博朋克未来世界。近日一段游戏的泄露视频在网上流传，根据泄露视频来看《赛博朋克2077》的早期设计方向是第三人称。
+							</p>
+							<p>近日ResetEra论坛上泄露了一段《赛博朋克2077》alpha测试版实机演示，显示了游戏在早期开发阶段第三人称实机画面。可以看到，V从公寓中醒来，然后开始了探索，尽管还只是游戏早期开发阶段，但玩家基本上已经可以和房间的大部分物品进行互动，包括香烟、啤酒等。
+							</p>
+							<a href="#big81" data-rel="popup" data-position-to="window">
+								<img src="img/img12/7.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="big81" data-overlay-theme="b">
+								<img src="img/img12/7.jpg" style="width:100%;" alt="Runoob">
+							</div>
+							<p>随后V与洗澡中的Sandra进行了交谈，洗完澡后V来到阳台和邻居互动，并递了一根烟，谈话间邻居向V透露了关于Sandra的信息，玩家对此作出回应。之后V回到房间，演示结束。整个演示中还可以看到不少车辆在高楼大厦间穿行的镜头
+							</p>
+							<a href="#big82" data-rel="popup" data-position-to="window">
+								<img src="img/img12/8.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="big82" data-overlay-theme="b">
+								<img src="img/img12/8.jpg" style="width:100%;" alt="Runoob">
+							</div>
+							<p>据报道，该《赛博朋克2077》早期演示来自于2013年得alpha测试版，可以看到《赛博朋克2077》在数年的开发时间里发生了多大的变化。此前有报道称，直到2016年之前《赛博朋克2077》都是以第三人称和飞行汽车为游戏特色进行开发，至于为何最终选择了现在的版本我们不得而知。
+							</p>
+							<p>据悉该实机演示大概率来自于《赛博朋克2077》的开发源代码，该代码日前因CDPR遭到黑客攻击而泄露，同时泄露的还有《巫师3》以及《赛博朋克2077》次时代版。</p>
+
+						</a>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img10">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					红魔城蕾米莉亚
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text10" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#big90" data-rel="popup" data-position-to="window">
+							<img src="img/img12/9.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="big90" data-overlay-theme="b">
+							<img src="img/img12/9.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2 id="startext10">东方同人作《红魔城蕾米莉亚》将登陆Steam/NS，游戏支持中文</h2>
+							<p>来源：游侠网</p>
+							<p>CFK宣布由Frontier Aja打造的东方Project的二次创作游戏《红魔城蕾米莉亚：绯色交响曲》将于2021年内在PC以及Switch平台发售。</p>
+							<p>《红魔城蕾米莉亚：绯色交响曲》是一款东方Project角色登场的横向卷轴动作游戏，在粉丝中被称为“东方恶魔城”，是在2009年在C76发售的原版中加入了各种各样追加要素的HD重制版作品。
+							</p>
+							<p>本作融合了传统风格的哥特式恐怖动作游戏和东方Project的世界观，为了探寻在幻想乡再次蔓延的红雾之谜，博丽灵梦一边打倒“红魔馆”的居民们，一边朝着变成城堡的“红魔城”进发。
+							</p>
+							<p>《红魔城蕾米莉亚：绯色交响曲》将于年内登陆PC以及Switch平台，游戏支持英语、法语、韩语、日语和中文，感兴趣的玩家敬请期待。</p>
+							<h3>游戏截图：</h3>
+							<a href="#big91" data-rel="popup" data-position-to="window">
+								<img src="img/img12/10.jpg" alt="Runoob">
+								<img src="img/img12/11.jpg" alt="Runoob">
+								<img src="img/img12/12.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="big91" data-overlay-theme="b">
+								<img src="img/img12/10.jpg" style="width:100%;" alt="Runoob">
+								<img src="img/img12/11.jpg" style="width:100%;" alt="Runoob">
+								<img src="img/img12/12.jpg" style="width:100%;" alt="Runoob">
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img11">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					绝地求生
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text11" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#bigg0" data-rel="popup" data-position-to="window">
+							<img src="img/img12/13.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="bigg0" data-overlay-theme="b">
+							<img src="img/img12/13.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2 id="startext11">「竞速分数大比拼」分享你的最佳竞速成绩，赢取沙漠之狼套装</h2>
+							<p>作者：PUBG活动娘</p>
+							<p>道路千万条，安全第一条，行车不规范，队友泪两行。吃鸡实验室开放了限时竞速模式，盒友们再也不用因为找不到磨炼车技的机会而苦恼。为了激励大家多多磨炼自己的车技，小黑盒特举办此次竞速大赛，相信自己，你就是赛场上最快的仔！</p>
+							<h3>参与方式</h3>
+							<p>在评论区晒出自己的竞速成绩截图即可，成绩最好的几名选手将会获得大奖。</p>
+							<p>《PS：截图要露出游戏ID</p>
+							<h3>截图示例</h3>
+							<a href="#bigg1" data-rel="popup" data-position-to="window">
+								<img src="img/img12/14.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="bigg1" data-overlay-theme="b">
+								<img src="img/img12/14.jpg" style="width:100%;" alt="Runoob">
+							</div>
+							<h3>活动时间</h3>
+							<p>6月12日-6月15日</p>
+							<h3>奖项设置</h3>
+							<p>1-2名：EL沙漠之狼皮肤套装</p>
+							<p>3-7名：EL沙漠之狼摩托车皮肤</p>
+							<p>8-17名：EL狼王手套</p>
+							<p>幸运奖20名：竞速宝箱</p>
+
+						</a>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="img12">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>
+					《破晓传奇》
+				</h1>
+				<a href="#pageone" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text12" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#bigg10" data-rel="popup" data-position-to="window">
+							<img src="img/img12/15.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="bigg10" data-overlay-theme="b">
+							<img src="img/img12/15.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2 id="startext12">《破晓传奇》登场角色及战斗系统等最新情报公布</h2>
+							<p>作者：小符符</p>
+							<p>万代南梦宫于今日公布了2021年9月9日登陆PS4、PS5、XONE以及XSX/S的《破晓传奇》（STEAM版9月10日发售）最新游戏情报及宣传影片。</p>
+							<h3>登场角色公开：</h3>
+							<a href="#bigg11" data-rel="popup" data-position-to="window">
+								<img src="img/img12/16.jpg" alt="Runoob">
+								<img src="img/img12/17.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="bigg11" data-overlay-theme="b">
+								<img src="img/img12/16.jpg" style="width:100%;" alt="Runoob">
+								<img src="img/img12/17.jpg" style="width:100%;" alt="Runoob">
+							</div>
+							<p>为雷纳人效劳、相信和平共处的达纳士兵。为杜欧哈林效劳的达纳士兵。其体能在达纳人所组成的军队中首屈一指，并受到雷纳士兵们的尊重。身上的装备皆由雷纳所制造。擅长使用钝器与盾进行近身战斗，除了进行高威力广范围攻击外，同时以盾守护伙伴。</p>
+							<a href="#bigg12" data-rel="popup" data-position-to="window">
+								<img src="img/img12/18.jpg" alt="Runoob">
+								<img src="img/img12/19.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="bigg12" data-overlay-theme="b">
+								<img src="img/img12/18.jpg" style="width:100%;" alt="Runoob">
+								<img src="img/img12/19.jpg" style="width:100%;" alt="Runoob">
+							</div>
+							<p>对达纳人表示友好、奇特的雷纳人。以友好的态度对待达纳人的雷纳贵族。对音乐、诗歌与古董收藏等艺术有着深厚的了解。精通棍术与星灵术，可配合战况进行全方位的战斗。</p>
+							<h3>战斗系统介绍</h3>
+							<p>战斗中的基本！消耗AG发动「术技」， 不论在地面或空中皆可发动的「招式」！招式分为特技与奥义。奥义比特技强劲，也会消耗较多AG。在地面或空中时，都能发动各自不同的招式。玩家可来回穿梭于空陆两边大显身手进行战斗。</p>
+							<a href="#bigg13" data-rel="popup" data-position-to="window">
+								<img src="img/img12/20.jpg" alt="Runoob">
+								<img src="img/img12/21.jpg" alt="Runoob">
+							</a>
+							<div data-role="popup" id="bigg13" data-overlay-theme="b">
+								<img src="img/img12/20.jpg" style="width:100%;" alt="Runoob">
+								<img src="img/img12/21.jpg" style="width:100%;" alt="Runoob">
+							</div>
+							<p>角色们可透过故事发展、达成任务、参加活动等方式获得独特的称号。依据获得称号的不同可学习相对应的「技能」；或在选单的技能盘画面中，消耗SP（Skill
+								point）学习技能，玩家可依照自己理想的战斗方式学习技能来强化角色。</p>
+
+						</a>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="shop1">
+			<div data-role="header">
+				<h2>只狼：影逝二度</h2>
+				<a href="#pagetwo" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text1" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#shopimag1" data-rel="popup" data-position-to="window">
+							<img src="img/sale/0.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="shopimag1" data-overlay-theme="b">
+							<img src="img/sale/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2>只狼：影逝二度</h2>
+							<p>Sekiro™: Shadows Die Twice - GOTY Edition</p>
+							<p>
+								在《Sekiro: Shadows Die Twice》中你是“独臂之狼”，一个名誉不再、伤痕累累的忍者，一个从死亡边缘捡回一命的战士。你效忠守护继承古老血统的年轻皇子，
+								与危险的苇名一族以及众多凶恶之徒为敌。年轻的皇子被抓走后，为挽回荣誉，你将不畏死亡，踏上危机四伏的征程。 探索生死冲突不断的16世纪后期，感受残酷的
+								日本战国时代，在黑暗、扭曲的世界，与威胁生命的敌人对峙。活用义手装备各种致命武器，大显忍者身手，在血腥对抗中潜行、上下穿梭，与敌人正面激烈交锋。
+							</p>
+						</a>
+
+					</div>
+
+					<!-- <div class="ui-block-a">
+				    	<a href="#shopimag2" data-rel="popup" data-position-to="window" >
+				    		<img src="img/img3/1.jpg" alt="Runoob">
+				    	</a>
+				    	<a>
+				    		<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+				    	</a>
+						<div data-role="popup" id="shopimag2"data-overlay-theme="b">
+						  <img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+						</div>
+				  </div> -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li onclick="wishshop(this)" id="wish1">
+							<a href="#shopping1">
+								<h2>加入购物车</h2>
+							</a>
+						</li>
+						<li onclick="addshop(this)" id="shopcc1">
+							<a href="#">
+								<h2 id="shopvalued1">￥268立即购买</h2>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="shop2">
+			<div data-role="header">
+				<h2>双人成行</h2>
+				<a href="#pagetwo" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text14" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#shopimag2" data-rel="popup" data-position-to="window">
+							<img src="img/sale/1.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="shopimag2" data-overlay-theme="b">
+							<img src="img/sale/1.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2>双人成行</h2>
+							<p></p>
+							<p>
+								游玩《双人成行》，踏上生命中最疯狂的旅程，这是一款别开生面的平台冒险游戏，完全为合作模式而设计。利用好友通行证*邀请一位好友免费游玩，共同体验多种多样的乐趣，享受颠覆性的玩法挑战。扮演相互看不顺眼的科迪和小梅夫妇，这两个人被魔咒变成了玩偶。他们一起被困在一个奇幻世界里，每个角落都隐藏着意想不到的东西，他们不得不一起克服挑战，同时挽救他们破裂的关系。在每个新关卡中，掌握角色独特且与对方息息相关的能力。
+							</p>
+						</a>
+
+					</div>
+
+					<!-- <div class="ui-block-a">
+						    	<a href="#shopimag2" data-rel="popup" data-position-to="window" >
+						    		<img src="img/img3/1.jpg" alt="Runoob">
+						    	</a>
+						    	<a>
+						    		<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+						    	</a>
+								<div data-role="popup" id="shopimag2"data-overlay-theme="b">
+								  <img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+								</div>
+						  </div> -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li onclick="wishshop(this)" id="wish2">
+							<a href="#">
+								<h2>加入购物车</h2>
+							</a>
+						</li>
+						<li onclick="addshop(this)" id="shopcc2">
+							<a href="#shopping1">
+								<h2 id="shopvalued2">￥148立即购买</h2>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="shop3">
+			<div data-role="header">
+				<h2>魔法迷域</h2>
+				<a href="#pagetwo" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text15" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#shopimag3" data-rel="popup" data-position-to="window">
+							<img src="img/sale/2.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="shopimag3" data-overlay-theme="b">
+							<img src="img/sale/2.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2>魔法迷域</h2>
+							<p></p>
+							<p>
+								《背景》 王国被帝国占领后，主人公逃跑到一个神秘岛上，在岛上发现了一个神秘传送门，能通往世界各地，跟随着的人们发现有机会夺回王国。于是便开始了新的冒险故事。 * 数十个英雄、上百个技能自由搭配 *
+								五十多个兵种怪物，各有特点。 * 探索随机挑战，随机装备，随机事件。 目前设计了8个章节，普通难度游戏体验5-6小时。 喜欢肝的玩家，我们也补充了精英和梦魔难度， 每个章节都有核心玩法。
+							</p>
+						</a>
+
+					</div>
+
+					<!-- <div class="ui-block-a">
+						    	<a href="#shopimag2" data-rel="popup" data-position-to="window" >
+						    		<img src="img/img3/1.jpg" alt="Runoob">
+						    	</a>
+						    	<a>
+						    		<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+						    	</a>
+								<div data-role="popup" id="shopimag2"data-overlay-theme="b">
+								  <img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+								</div>
+						  </div> -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li onclick="wishshop(this)" id="wish3">
+							<a href="#">
+								<h2>加入购物车</h2>
+							</a>
+						</li>
+						<li onclick="addshop(this)" id="shopcc3">
+							<a href="#shopping1">
+								<h2 id="shopvalued3">￥29立即购买</h2>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="shop4">
+			<div data-role="header">
+				<h2>双点医院</h2>
+				<a href="#pagetwo" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text16" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#shopimag4" data-rel="popup" data-position-to="window">
+							<img src="img/sale/3.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="shopimag4" data-overlay-theme="b">
+							<img src="img/sale/3.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2>双点医院</h2>
+							<p></p>
+							<p>
+								设计和建造属于你自己的医院！你将从无到有建造一座医院，设计整个双点县最美观、或是服务水平最高的医疗机构。
+								优化你的医院设计，精确规划走廊、病房和等待区，以增加病患流量（以及现金收入）。如果想要让尽可能多的患者前来就诊，不妨将医院扩展到数栋大楼之多。还可以在医院中放置各种装饰性和功能性设施，提高医院的名望、避免患者无聊、提升幸福感、并在年底收获大量评奖。
+								处理“非常”的病症 不要以为来双点医院的都是pacient。
+							</p>
+						</a>
+
+					</div>
+
+					<!-- <div class="ui-block-a">
+						    	<a href="#shopimag2" data-rel="popup" data-position-to="window" >
+						    		<img src="img/img3/1.jpg" alt="Runoob">
+						    	</a>
+						    	<a>
+						    		<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+						    	</a>
+								<div data-role="popup" id="shopimag2"data-overlay-theme="b">
+								  <img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+								</div>
+						  </div> -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li onclick="wishshop(this)" id="wish4">
+							<a href="#">
+								<h2>加入购物车</h2>
+							</a>
+						</li>
+						<li onclick="addshop(this)" id="shopcc4">
+							<a href="#shopping1">
+								<h2 id="shopvalued4">￥39立即购买</h2>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="shop5">
+			<div data-role="header">
+				<h2>足球经理2021</h2>
+				<a href="#pagetwo" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text17" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#shopimag5" data-rel="popup" data-position-to="window">
+							<img src="img/sale/4.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="shopimag5" data-overlay-theme="b">
+							<img src="img/sale/4.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2>足球经理2021</h2>
+							<p>Football Manager 2021</p>
+							<p>
+								主教练是每个足球俱乐部的核心。在《Football Manager
+								2021》中，你将经历动态、真实的足球管理体验，并有着大量前所未见的全新细节，让你拥有进入精英教练阶层的一切先决条件。联赛金字塔上每级皆有超过50个国家和2500个俱乐部可供选择，你可体验无穷可能性。教练，交给你了。
+								选择最适合你教练愿景和挑战的主队，和管理层合作来确保达到他们的目标……否则就要付出代价。
+							</p>
+						</a>
+
+					</div>
+
+					<!-- <div class="ui-block-a">
+						    	<a href="#shopimag2" data-rel="popup" data-position-to="window" >
+						    		<img src="img/img3/1.jpg" alt="Runoob">
+						    	</a>
+						    	<a>
+						    		<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+						    	</a>
+								<div data-role="popup" id="shopimag2"data-overlay-theme="b">
+								  <img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+								</div>
+						  </div> -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li onclick="wishshop(this)" id="wish5">
+							<a href="#">
+								<h2>加入购物车</h2>
+							</a>
+						</li>
+						<li onclick="addshop(this)" id="shopcc5">
+							<a href="#shopping1">
+								<h2 id="shopvalued5">￥124立即购买</h2>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="shop6">
+			<div data-role="header">
+				<h2>枪火重生</h2>
+				<a href="#pagetwo" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text18" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#shopimag6" data-rel="popup" data-position-to="window">
+							<img src="img/sale/5.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="shopimag6" data-overlay-theme="b">
+							<img src="img/sale/5.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2>枪火重生</h2>
+							<p>枪火重生</p>
+							<p>
+								关于这款游戏：《枪火重生》是一款融合了第一人称射击、Roguelite随机元素和RPG策略选择的冒险闯关游戏。玩家在游戏里可以操纵不同能力的英雄组建多种Build玩法，使用随机掉落的武器在随机性关卡中进行冒险挑战。可以单人畅玩，也可以最多四人组队挑战。
+								在游戏中，玩家的每次关卡体验都是随机的。每一次重新开始游戏都是新的体验。
+							</p>
+						</a>
+
+					</div>
+
+					<!-- <div class="ui-block-a">
+						    	<a href="#shopimag2" data-rel="popup" data-position-to="window" >
+						    		<img src="img/img3/1.jpg" alt="Runoob">
+						    	</a>
+						    	<a>
+						    		<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+						    	</a>
+								<div data-role="popup" id="shopimag2"data-overlay-theme="b">
+								  <img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+								</div>
+						  </div> -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li onclick="wishshop(this)" id="wish6">
+							<a href="#">
+								<h2>加入购物车</h2>
+							</a>
+						</li>
+						<li onclick="addshop(this)" id="shopcc6">
+							<a href="#shopping1">
+								<h2 id="shopvalued6">￥33立即购买</h2>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="shop7">
+			<div data-role="header">
+				<h2>极品飞车：热度</h2>
+				<a href="#pagetwo" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text19" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#shopimag7" data-rel="popup" data-position-to="window">
+							<img src="img/sale/6.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="shopimag7" data-overlay-theme="b">
+							<img src="img/sale/6.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2>极品飞车：热度</h2>
+							<p>Need for Speed™ Heat</p>
+							<p>
+								这是一次惊心动魄的赛车体验，你将在与城市腐败警察的对抗中，一路披荆斩棘，成为街头赛车的精英。豪华版精彩内容：1 辆新手车 — K.S 版三菱 Lancer Evolution X 新手车——玩家车库标配另外 3 辆 K.S
+								版赛车，随着游戏的推进解锁4 种专属角色服饰——在角色定制中可用，可交换且适合男女角色。声望和奖金加成声望奖励增加 5 %奖金增加 5%。
+							</p>
+						</a>
+
+					</div>
+
+					<!-- <div class="ui-block-a">
+						    	<a href="#shopimag2" data-rel="popup" data-position-to="window" >
+						    		<img src="img/img3/1.jpg" alt="Runoob">
+						    	</a>
+						    	<a>
+						    		<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+						    	</a>
+								<div data-role="popup" id="shopimag2"data-overlay-theme="b">
+								  <img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+								</div>
+						  </div> -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li onclick="wishshop(this)" id="wish7">
+							<a href="#">
+								<h2>加入购物车</h2>
+							</a>
+						</li>
+						<li onclick="addshop(this)" id="shopcc7">
+							<a href="#shopping1">
+								<h2 id="shopvalued7">￥72立即购买</h2>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="shop8">
+			<div data-role="header">
+				<h2>糖豆人：淘汰赛</h2>
+				<a href="#pagetwo" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text20" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#shopimag8" data-rel="popup" data-position-to="window">
+							<img src="img/sale/7.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="shopimag8" data-overlay-theme="b">
+							<img src="img/sale/7.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2>糖豆人：淘汰赛</h2>
+							<p>糖豆人：淘汰赛</p>
+							<p>
+								欢迎大家通过玩家交流群，与我们沟通反馈在游戏中所遇到的问题。玩家交流QQ群 ①-⑤群：已满玩家交流QQ群 ⑥群：361104561在《糖豆人:
+								终极淘汰赛》这个大型闯关综艺现场，你将和大批参赛者共同面对一场“欲戴皇冠必趁其乱”的冲关竞技！你要灵活应对野蛮生长的障碍物，挤开黏人的比赛对手，跌跌撞撞地向荣耀发起冲锋。自踏入赛场的一刻起，就请将面子和理智丢到九霄云外，向皇冠发起挑战。
+							</p>
+						</a>
+
+					</div>
+
+					<!-- <div class="ui-block-a">
+						    	<a href="#shopimag2" data-rel="popup" data-position-to="window" >
+						    		<img src="img/img3/1.jpg" alt="Runoob">
+						    	</a>
+						    	<a>
+						    		<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+						    	</a>
+								<div data-role="popup" id="shopimag2"data-overlay-theme="b">
+								  <img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+								</div>
+						  </div> -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li onclick="wishshop(this)" id="wish8">
+							<a href="#">
+								<h2>加入购物车</h2>
+							</a>
+						</li>
+						<li onclick="addshop(this)" id="shopcc8">
+							<a href="#shopping1">
+								<h2 id="shopvalued8">￥58立即购买</h2>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="shop9">
+			<div data-role="header">
+				<h2>战地5</h2>
+				<a href="#pagetwo" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text21" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#shopimag9" data-rel="popup" data-position-to="window">
+							<img src="img/sale/8.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="shopimag9" data-overlay-theme="b">
+							<img src="img/sale/8.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2>战地5</h2>
+							<p>《战地风云 5》</p>
+							<p>
+								这就是终极《战地风云 5》体验。用已解锁的全部游戏内容从海陆空体验人类历史上规模最大的冲突。从完整的武器、载具和配备武器库中做出选择，沉浸于激烈的第二次世界大战。用完整的精英阵容以及第 1 年和第 2
+								年最棒的自定义内容在战场上脱颖而出。《战地风云 5》决定版包含《战地风云 5》主游戏和最齐全的内容收录：自发行以来、第 1 年和第 2 年的所有游戏内容（武器、载具和配备）所有精英84
+								款极具带入感的英军和德军服装，提升二战沙盒游戏体验。
+							</p>
+						</a>
+
+					</div>
+
+					<!-- <div class="ui-block-a">
+						    	<a href="#shopimag2" data-rel="popup" data-position-to="window" >
+						    		<img src="img/img3/1.jpg" alt="Runoob">
+						    	</a>
+						    	<a>
+						    		<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+						    	</a>
+								<div data-role="popup" id="shopimag2"data-overlay-theme="b">
+								  <img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+								</div>
+						  </div> -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li onclick="wishshop(this)" id="wish9">
+							<a href="#">
+								<h2>加入购物车</h2>
+							</a>
+						</li>
+						<li onclick="addshop(this)" id="shopcc9">
+							<a href="#shopping1">
+								<h2 id="shopvalued9">￥75立即购买</h2>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="shop10">
+			<div data-role="header">
+				<h2>绝地求生</h2>
+				<a href="#pagetwo" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#" onclick="changCss(this)" id="text22" data-role="button" class="ui-btn-right" data-icon="star"
+				 data-iconpos="notext"></a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<a href="#shopimag10" data-rel="popup" data-position-to="window">
+							<img src="img/sale/9.jpg" alt="Runoob">
+						</a>
+						<div data-role="popup" id="shopimag10" data-overlay-theme="b">
+							<img src="img/sale/9.jpg" style="width:100%;" alt="Runoob">
+						</div>
+						<a>
+							<h2>绝地求生</h2>
+							<p>PLAYERUNKNOWN'S BATTLEGROUNDS</p>
+							<p>
+								绝地求生(PLAYERUNKNOWN’S BATTLEGROUNDS)是战术竞技类游戏，每一局游戏将有100名玩家参与，他们将被投放在绝地岛(battlegrounds)的上空，游戏开始跳伞时所有人都一无所有。
+								游戏展开的方式是：玩家赤手空拳地分布在岛屿的各个角落，利用岛上多样的武器与道具。 随着时间的流逝，岛上的安全地带越来越少，特定地区也会发生爆炸的情况，最终只有一人存活获得胜利。
+							</p>
+						</a>
+
+					</div>
+
+					<!-- <div class="ui-block-a">
+						    	<a href="#shopimag2" data-rel="popup" data-position-to="window" >
+						    		<img src="img/img3/1.jpg" alt="Runoob">
+						    	</a>
+						    	<a>
+						    		<p>回想起来社团这两年也算是多灾多难，相比做《旧手表》那个时候，现在灰烬天国的人员和规模确实有了一些变化，新作《幻觉》也因为疫情，资方退出等等原因而拖了许久。</p>
+						    	</a>
+								<div data-role="popup" id="shopimag2"data-overlay-theme="b">
+								  <img src="img/img3/0.jpg" style="width:100%;" alt="Runoob">
+								</div>
+						  </div> -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar">
+					<ul>
+						<li onclick="wishshop(this)" id="wish10">
+							<a href="#">
+								<h2>加入购物车</h2>
+							</a>
+						</li>
+						<li onclick="addshop(this)" id="shopcc10">
+							<a href="#shopping1">
+								<h2 id="shopvalued10">￥98立即购买</h2>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+		<div data-role="page" id="anquan">
+			<div data-role="header">
+				<h2>安全与绑定</h2>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<ul data-role="listview" data-inset="true">
+					<li>
+						<a href="#change">
+							设置用户名密码
+						</a>
+					</li>
+					<li>
+						<a onclick="zhuxiao()">
+							永久注销当前账号
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div data-role="page" id="change">
+			<div data-role="header">
+				<h2>设置用户名密码</h2>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<ul data-role="listview" data-inset="true">
+					<li>
+						<a href="#changename">
+							修改用户名
+						</a>
+					</li>
+					<li>
+						<a href="#changepassword">
+							修改密码
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div data-role="page" id="changename">
+			<div data-role="header">
+				<h2>修改名字</h2>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#pagefour" onclick="changeusename()" data-role="button">保存</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<label for="fullname">我的账号</label>
+				<input type="text" name="fullname" id="dataname" maxlength="10">
+			</div>
+		</div>
+
+		<div data-role="page" id="changepassword">
+			<div data-role="header">
+				<h2>修改密码</h2>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#pagefour" onclick="changeusepassword()" data-role="button">保存</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<label for="fullname">我的密码</label>
+				<input type="text" name="fullname" id="datapassword" maxlength="10">
+			</div>
+		</div>
+
+		<div data-role="page" id="userset">
+			<div data-role="header">
+				<h2>个人信息</h2>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<ul data-role="listview" data-inset="true">
+					<li>
+						<a href="#setname">
+							名字<span id="username" class="ui-li-count"></span>
+						</a>
+					</li>
+					<li>
+						<a href="#setsign">
+							个性签名<span id="usersign" class="ui-li-count">
+						</a>
+					</li>
+					<li>
+						<a href="#sethobby">
+							爱好<span id="userhobby" class="ui-li-count">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div data-role="page" id="containful">
+			<div data-role="header">
+				<h2>库存</h2>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+			</div>
+			<div data-role="main" class="ui-content" id="containcss">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a><img id="containimage1">
+									<h2 id="shopadd1name"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a><img id="containimage2">
+									<h2 id="shopadd2name"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a><img id="containimage3">
+									<h2 id="shopadd3name"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a><img id="containimage4">
+									<h2 id="shopadd4name"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a><img id="containimage5">
+									<h2 id="shopadd5name"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a><img id="containimage6">
+									<h2 id="shopadd6name"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a><img id="containimage7">
+									<h2 id="shopadd7name"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a><img id="containimage8">
+									<h2 id="shopadd8name"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a><img id="containimage9">
+									<h2 id="shopadd9name"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a><img id="containimage10">
+									<h2 id="shopadd10name"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="page" id="record">
+			<div data-role="header">
+				<h1>收藏</h1>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href1"><img id="starimage1">
+									<h2 id="starname1"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href2"><img id="starimage2">
+									<h2 id="starname2"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href3"><img id="starimage3">
+									<h2 id="starname3"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href4"><img id="starimage4">
+									<h2 id="starname4"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href5"><img id="starimage5">
+									<h2 id="starname5"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href6"><img id="starimage6">
+									<h2 id="starname6"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href7"><img id="starimage7">
+									<h2 id="starname7"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href8"><img id="starimage8">
+									<h2 id="starname8"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href9"><img id="starimage9">
+									<h2 id="starname9"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href10"><img id="starimage10">
+									<h2 id="starname10"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href11"><img id="starimage11">
+									<h2 id="starname11"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href12"><img id="starimage12">
+									<h2 id="starname12"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href13"><img id="starimage13">
+									<h2 id="starname13"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href14"><img id="starimage14">
+									<h2 id="starname14"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li><a id="href15"><img id="starimage15">
+									<h2 id="starname15"></h2>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div> ​
+
+		<div data-role="page" id="shopcar">
+			<div data-role="header">
+				<h1>购物车</h1>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demoform.php">
+					<fieldset data-role="controlgroup">
+						<legend>请选择您喜爱的颜色：</legend>
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li id="shophref1">
+								<a>
+									<img id="starshopimage1">
+									<h2 id="starshopname1"></h2>
+									<p id="starshopvalue1"></p>
+								</a>
+							</li>
+						</ul>
+
+
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li id="shophref2"><a><img id="starshopimage2">
+									<h2 id="starshopname2"></h2>
+									<p id="starshopvalue2"></p>
+								</a></li>
+						</ul>
+
+
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li id="shophref3"><a><img id="starshopimage3">
+									<h2 id="starshopname3"></h2>
+									<p id="starshopvalue3"></p>
+								</a></li>
+						</ul>
+
+
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li id="shophref4"><a><img id="starshopimage4">
+									<h2 id="starshopname4"></h2>
+									<p id="starshopvalue4"></p>
+								</a></li>
+						</ul>
+
+
+						<ul data-role="listview" data-inset="false" data-icon="false">
+							<li id="shophref5"><a><img id="starshopimage5">
+									<h2 id="starshopname5"></h2>
+									<p id="starshopvalue5"></p>
+								</a></li>
+						</ul>
+
+
+
+						<input type="checkbox" id="cb_all" name="cb_all" class="checkb" /><a><img id="starshopimage6">
+
+						</a>
+						<h2 id="endvalue"></h2>
+						<input id="jiesuan" type="button" data-inline="true" value="结算">
+					</fieldset>
+				</form>
+			</div>
+
+		</div> ​
+
+		<div data-role="page" id="setname">
+			<div data-role="header">
+				<h2>修改名字</h2>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#pagefour" onclick="savename()" data-role="button">保存</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<label for="fullname">我的名字</label>
+				<input type="text" name="fullname" id="myname" maxlength="10">
+			</div>
+		</div>
+
+		<div data-role="page" id="setsign">
+			<div data-role="header">
+				<h2>修改签名</h2>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#pagefour" onclick="savesign()" data-role="button">保存</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<label for="fullname">我的签名</label>
+				<input type="text" name="fullname" id="mysign" maxlength="15">
+			</div>
+		</div>
+
+		<div data-role="page" id="sethobby">
+			<div data-role="header">
+				<h2>修改兴趣</h2>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<a href="#pagefour" onclick="savehobby()" data-role="button">保存</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<label for="fullname">我的兴趣</label>
+				<input type="text" name="fullname" id="myhobby" maxlength="12">
+			</div>
+		</div>
+
+		<div data-role="page" id="search">
+			<div data-role="header">
+				<h2>搜索</h2>
+				<a href="#pageone" class="ui-btn-left" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+				<div data-role="fieldcontain">
+					<label for="search"></label>
+					<input type="search" name="password" id="search" value="" />
+				</div>
+
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<ul data-role="listview" data-inset="false" data-icon="false">
+									<li><a></a></li>
+								</ul>
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="page" id="emilbox">
+			<div data-role="header">
+				<h1>信箱</h1>
+				<a href="#pagefour" data-role="button" data-iconpos="notext" data-icon="back">返回</a>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">						
+					</div>
+				</div>
+				<div class="ui-grid-solo">
+					<div class="ui-block-a">
+						
+					</div>
+				</div>				
+			</div>
+		</div> ​
+	</body>
+
+
+	<script>
+		var jsoned = storage.getItem("data" + logining);
+		var usered = JSON.parse(jsoned);
+		var json = storage.getItem("userdata" + logining);
+		var user = JSON.parse(json);
+
+		var username = document.getElementById("username");
+		var usernamed = document.getElementById("usernamed");
+		if (user.name == null) {
+			username.innerText = usered.usename;
+			usernamed.innerText = usered.usename;
+		} else {
+			username.innerText = user.name;
+			usernamed.innerText = user.name;
+		}
+
+		var userhobby = document.getElementById("userhobby");
+		if (user.hobby == null) {
+			userhobby.innerText = '无爱好';
+		} else {
+			userhobby.innerText = user.hobby;
+		}
+
+		var usersign = document.getElementById("usersign");
+		var usersigned = document.getElementById("usersigned");
+		if (user.sign == null) {
+			usersign.innerText = '个性签名';
+			usersigned.innerText = '个性签名';
+		} else {
+			usersign.innerText = user.sign;
+			usersigned.innerText = user.sign;
+		}
+	</script>
+	<script type="text/javascript">
+		function changeusename() {
+			var datanames = document.getElementById("dataname").value;
+			var json = storage.getItem("data" + logining);
+			var user = JSON.parse(json);
+			user.usename = datanames;
+			var s = JSON.stringify(user);
+			storage.setItem("data" + logining, s);
+			var z = setTimeout(nextd, 1000);
+			function nextd(){							
+				location.reload();
+			}
+		}
+
+		function changeusepassword() {
+			var datapasswords = document.getElementById("datapassword").value;
+			var json = storage.getItem("data" + logining);
+			var user = JSON.parse(json);
+			user.password = datapasswords;
+			var s = JSON.stringify(user);
+			storage.setItem("data" + logining, s);
+			setTimeout(function() {
+				location.href = 'login.html';
+			}, 1000)
+				
+		}
+
+		function zhuxiao() {
+			localStorage.removeItem('userdata' + logining);
+			localStorage.removeItem('data' + logining);
+			localStorage.removeItem('usercontain' + logining);
+			setTimeout(function() {
+				location.href = 'login.html';
+			}, 1000)
+		}
+	</script>
+	<script type="text/javascript">
+		var json = storage.getItem("usercontain" + logining);
+		var user = JSON.parse(json);							
+		function addshop(obj) {
+			var z = obj.id.match(/\d+/g)[0];
+			if(user["shop" + z]==null){				
+				var shopnamed = document.getElementById("shop"+z+"name").innerHTML;
+				user["shop" + z] = shopnamed;
+				var s = JSON.stringify(user);
+				storage.setItem("usercontain" + logining, s);
+				var t = setTimeout(nextnn, 1000);
+				function nextnn(){					
+					var endd = document.getElementById("shopvalue"+z).innerHTML.match(/\d+/g)[0];				
+					alert("恭喜你，购买完成！"+ "￥" + endd);
+					location.reload();
+				}
+			}					
+		}
+	</script>
+	<script type="text/javascript">
+		var json = storage.getItem("userstar" + logining);
+		var star = JSON.parse(json);
+
+		function addstarobj(obj) {
+			var z = obj.id.match(/\d+/g);			
+			var starid = 'startext' + z;
+			star["text" + z[0]] = starid;
+			var s = JSON.stringify(star);
+			storage.setItem("userstar" + logining, s);
+		}
+
+		function deletestar(obj) {
+			var z = obj.id.match(/\d+/g);			
+			star["text" + z[0]] = null;
+			var s = JSON.stringify(star);
+			storage.setItem("userstar" + logining, s);
+		}
+	</script>	
+	<script type="text/javascript">
+		var json = storage.getItem("userstarshop" + logining);
+		var shopstar = JSON.parse(json);
+		var json = storage.getItem("usercontain" + logining);
+		var shcontain = JSON.parse(json);
+		function wishshop(obj) {
+			var z = obj.id.match(/\d+/g);
+			if(shopstar["text" + z[0]]==null && shcontain["shop" + z[0]]==null){				
+				var html = '<p id="msg">加入购物车成功</p>'
+				$("#wish" + z[0]).prepend(html);
+				var t = setTimeout(next, 2000);
+				function next() {
+					$("#msg").remove();
+				}
+				var shopnamed = document.getElementById("shop"+z[0]+"name").innerHTML;
+				var starid =shopnamed;
+				shopstar["text" + z[0]] = starid;
+				var s = JSON.stringify(shopstar);
+				storage.setItem("userstarshop" + logining, s);
+				var z = setTimeout(nextd, 3000);
+				function nextd(){							
+					location.reload();
+				}
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		var c = 1;
+		var b = 1;
+		var json = storage.getItem("userstarshop" + logining);
+		var textshop = JSON.parse(json);
+		if (storage.getItem("userstarshop" + logining)) {
+			for (var c; c <= 10; c++) {
+				if (textshop["text" + c] != null) {
+					var prevalue = document.getElementById("shopvalue" + c);
+					var levalue = document.getElementById("starshopvalue" + b);
+					levalue.innerHTML = prevalue.innerHTML;
+					var html = '<input type="checkbox" data-mini="true"name="favcolor" class="checkb" value="shop">'
+					$("#shophref" + b).prepend(html);
+					var shopvalue = document.getElementById("starshopname" + b);
+					var shopnamed = document.getElementById("shop" + c + "name").innerHTML;
+					shopvalue.innerText = shopnamed;
+					var img = document.getElementById("starshopimage" + b);
+					img.src = "img/shopstar/" + c + ".jpg";
+					b++;
+				}
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		var c = 1;
+		var b = 1;
+		var json = storage.getItem("userstar" + logining);
+		var text = JSON.parse(json);
+		if (storage.getItem("userstar" + logining)) {
+			for (var c; c <= 15; c++) {
+				if (text["text" + c] != null) {
+					var shopvalue = document.getElementById("starname" + b);
+					var textrr = document.getElementById('startext' + c);
+					if(c>=13){
+						document.getElementById("href" + b).href = "#pagethree";
+					}
+					else{
+						document.getElementById("href" + b).href = "#img" + c;
+					}
+					shopvalue.innerText = textrr.innerHTML;
+					var img = document.getElementById("starimage" + b);
+					img.src = "img/textstar/" + c + ".jpg";
+					b++;
+				}
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		var c = 1;
+		var b = 1;
+		var json = storage.getItem("usercontain" + logining);
+		var user = JSON.parse(json);
+		if (storage.getItem("usercontain" + logining)) {
+			for (var c; c <= 10; c++) {
+				if (user["shop" + c] != null) {
+					var shopvalue = document.getElementById("shopadd" + b + "name");
+					shopvalue.innerText = user["shop" + c];
+					var img = document.getElementById("containimage" + b);
+					img.src = "img/containimg/" + c + ".jpg";
+					var shopped= document.getElementById("shopvalue"+c);
+					shopped.innerText="已拥有";
+					var shopped= document.getElementById("shopvalued"+c);
+					shopped.innerText="已拥有";
+					b++;
+				}
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		var c = 1;
+		var b = 1;
+		var json = storage.getItem("userstar" + logining);
+		var text = JSON.parse(json);
+		if (storage.getItem("userstar" + logining)) {
+			for (var c; c <= 12; c++) {
+				if (text["text" + c] != null) {
+					var starid = document.getElementById("text" + c);
+					starid.style.backgroundColor = "rgb(119 174 232)";
+				}
+			}
+		}		
+	</script>
+	<script type="text/javascript">
+		$(document).on("pagecreate", "#shopcar", function() {
+			$("#cb_all").change(function() {
+				if (this.checked) {
+					$("input[type='checkbox']").attr("checked", true).checkboxradio("refresh");
+					var items = document.getElementsByName("favcolor");
+					var context = 0;					
+					for (var i = 0; i < items.length; i++) {
+						//判断多选框是否选中
+						if (items[i].checked) {							
+							var b = i + 1;
+							var levalue = document.getElementById("starshopvalue" + b).innerText.match(/\d+/g)[0];							
+							context += Number(levalue);
+						}
+					}
+					var end = document.getElementById("endvalue");
+					end.innerHTML = "合计：" + "￥" + context;
+				} else {
+					$("input[type='checkbox']").attr("checked", false).checkboxradio("refresh");
+					location.reload();
+				}
+
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		var sendBtn = document.getElementById("jiesuan");
+		sendBtn.onclick = function() {
+			var items = document.getElementsByName("favcolor");
+			var context = 0;			
+			for (var i = 0; i < items.length; i++) {
+				//判断多选框是否选中
+				if (items[i].checked) {					
+					var b = i + 1;
+					var levalue = document.getElementById("starshopvalue" + b).innerText.match(/\d+/g)[0];					
+					context += Number(levalue);
+				}
+			}
+			var end = document.getElementById("endvalue");
+			end.innerHTML = "合计：" + "￥" + context;
+			alert(end.innerHTML+"恭喜你，购买完成！");
+			var t = setTimeout(nexted, 1000);
+			
+			function nexted() {
+				var json = storage.getItem("userstarshop" + logining);
+				var temp = JSON.parse(json);
+				for (var i = 0; i < items.length; i++) {
+					//判断多选框是否选中
+					if (items[i].checked) {
+						var b=i+1;
+						var lename = document.getElementById("starshopname" + b).innerText;						
+						for(var j=1;j<=10;j++){							
+							if(temp["text" + j]==lename){															
+									temp["text" + j]=null;
+									var s = JSON.stringify(temp);									
+									storage.setItem("userstarshop" + logining, s);
+									var shopnamed = document.getElementById("shop"+j+"name").innerHTML;
+									user["shop" + j] = shopnamed;
+									var s = JSON.stringify(user);
+									storage.setItem("usercontain" + logining, s);
+								}
+							}
+						}
+					}
+			}
+			var z = setTimeout(nextd, 2000);
+			function nextd(){							
+				location.reload();
+			}			
+		};
+	</script>
+	<script type="text/javascript">
+		var items = document.getElementsByName("favcolor");
+		var i=0;
+		for(var i;i<items.length;i++){
+			
+			items[i].onclick = function() {
+				var context = 0;
+				for (var i = 0; i < items.length; i++) {
+					//判断多选框是否选中
+					if (items[i].checked) {						
+						var b = i + 1;
+						var levalue = document.getElementById("starshopvalue" + b).innerText.match(/\d+/g)[0];						
+						context += Number(levalue);
+					}
+				}
+				var end = document.getElementById("endvalue");
+				end.innerHTML = "合计：" + "￥" + context;
+			}
+		}
+		
+	</script>
+</html>
