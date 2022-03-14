@@ -73,10 +73,10 @@
 			if (localStorage.length == 0) {
 				alert('用户未注册过！');
 			}
-			if(localStorage.length%5!=0){
-				var i=(localStorage.length+5-localStorage.length%5)/5;
+			if(localStorage.length%6!=0){
+				var i=(localStorage.length+6-localStorage.length%6)/6;
 			}else{
-				var i = localStorage.length/5;
+				var i = localStorage.length/6;
 			}			
 			console.log(i);
 			for (var i; i > 0; i--) {
